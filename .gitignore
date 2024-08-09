@@ -6,7 +6,6 @@
 *.xccheckout
 *.xcuserdatad
 *.xcdebugger
-*.xcodeproj
 *.xcworkspace
 *.xcuserdata
 
