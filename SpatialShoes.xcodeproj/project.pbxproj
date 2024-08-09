@@ -10,11 +10,7 @@
 		E36659C12C664F76005D13FE /* RealityShoeGallery in Frameworks */ = {isa = PBXBuildFile; productRef = E36659C02C664F76005D13FE /* RealityShoeGallery */; };
 		E36659C32C665A4B005D13FE /* ShoeRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36659C22C665A4B005D13FE /* ShoeRealityView.swift */; };
 		E398A1562C64C8F7008B810C /* ShoeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A1552C64C8F7008B810C /* ShoeCardView.swift */; };
-		E398A15B2C64D9DA008B810C /* ShoeModel3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A15A2C64D9DA008B810C /* ShoeModel3DView.swift */; };
 		E398A1602C64EC4D008B810C /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A15F2C64EC4D008B810C /* CustomProgressView.swift */; };
-		E398A16D2C6517CB008B810C /* shoeConfigs.json in Resources */ = {isa = PBXBuildFile; fileRef = E398A16C2C6517CB008B810C /* shoeConfigs.json */; };
-		E398A16F2C651998008B810C /* ShoeConfigDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A16E2C65198E008B810C /* ShoeConfigDTO.swift */; };
-		E39D2EA72C66385500D056E4 /* ShoeConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2EA62C66384F00D056E4 /* ShoeConfigModel.swift */; };
 		E3F196352C63B904004B6D18 /* SpatialShoesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F196322C63B904004B6D18 /* SpatialShoesApp.swift */; };
 		E3F196362C63B904004B6D18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F1962D2C63B904004B6D18 /* Preview Assets.xcassets */; };
 		E3F196372C63B904004B6D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F1962F2C63B904004B6D18 /* Assets.xcassets */; };
@@ -33,11 +29,7 @@
 /* Begin PBXFileReference section */
 		E36659C22C665A4B005D13FE /* ShoeRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeRealityView.swift; sourceTree = "<group>"; };
 		E398A1552C64C8F7008B810C /* ShoeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCardView.swift; sourceTree = "<group>"; };
-		E398A15A2C64D9DA008B810C /* ShoeModel3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeModel3DView.swift; sourceTree = "<group>"; };
 		E398A15F2C64EC4D008B810C /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
-		E398A16C2C6517CB008B810C /* shoeConfigs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shoeConfigs.json; sourceTree = "<group>"; };
-		E398A16E2C65198E008B810C /* ShoeConfigDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeConfigDTO.swift; sourceTree = "<group>"; };
-		E39D2EA62C66384F00D056E4 /* ShoeConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeConfigModel.swift; sourceTree = "<group>"; };
 		E3F196162C63B8EF004B6D18 /* SpatialShoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialShoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F1962D2C63B904004B6D18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E3F1962F2C63B904004B6D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +64,6 @@
 			children = (
 				E398A1552C64C8F7008B810C /* ShoeCardView.swift */,
 				E36659C22C665A4B005D13FE /* ShoeRealityView.swift */,
-				E398A15A2C64D9DA008B810C /* ShoeModel3DView.swift */,
 				E398A15F2C64EC4D008B810C /* CustomProgressView.swift */,
 			);
 			name = SubViews;
@@ -150,9 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F196442C63BE1B004B6D18 /* ShoeModel.swift */,
-				E39D2EA62C66384F00D056E4 /* ShoeConfigModel.swift */,
 				E3F196462C63C126004B6D18 /* ShoeDTO.swift */,
-				E398A16E2C65198E008B810C /* ShoeConfigDTO.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -161,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				E3F1963D2C63B963004B6D18 /* shoes.json */,
-				E398A16C2C6517CB008B810C /* shoeConfigs.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -264,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E398A16D2C6517CB008B810C /* shoeConfigs.json in Resources */,
 				E3F196362C63B904004B6D18 /* Preview Assets.xcassets in Resources */,
 				E3F1963E2C63B963004B6D18 /* shoes.json in Resources */,
 				E3F196372C63B904004B6D18 /* Assets.xcassets in Resources */,
@@ -278,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E398A16F2C651998008B810C /* ShoeConfigDTO.swift in Sources */,
 				E3F196472C63C12D004B6D18 /* ShoeDTO.swift in Sources */,
 				E3F1964A2C63C6D1004B6D18 /* StringExtension.swift in Sources */,
 				E3F196432C63BD9E004B6D18 /* DataInteractor.swift in Sources */,
@@ -286,10 +272,8 @@
 				E3F196542C63E722004B6D18 /* ModelEnums.swift in Sources */,
 				E3F196452C63BE1D004B6D18 /* ShoeModel.swift in Sources */,
 				E3F1964F2C63D2B9004B6D18 /* Previews.swift in Sources */,
-				E398A15B2C64D9DA008B810C /* ShoeModel3DView.swift in Sources */,
 				E3F196512C63D8BC004B6D18 /* ShoeCollectionView.swift in Sources */,
 				E398A1602C64EC4D008B810C /* CustomProgressView.swift in Sources */,
-				E39D2EA72C66385500D056E4 /* ShoeConfigModel.swift in Sources */,
 				E398A1562C64C8F7008B810C /* ShoeCardView.swift in Sources */,
 				E3F1964D2C63C804004B6D18 /* ResourceErrors.swift in Sources */,
 				E3F196352C63B904004B6D18 /* SpatialShoesApp.swift in Sources */,

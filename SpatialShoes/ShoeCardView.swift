@@ -15,7 +15,7 @@ struct ShoeCardView: View {
             ShoeRealityView(model3DName: shoe.model3DName)
             Text(shoe.name)
                 .font(.title)
-                .frame(depth: 25)
+                .frame(depth: 250)
         }
         .frame(width: 250, height: 300)
         .padding()

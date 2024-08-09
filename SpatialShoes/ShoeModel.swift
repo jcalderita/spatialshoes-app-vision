@@ -27,12 +27,11 @@ final class ShoeModel {
     var colors: [String]
     var warranty: Int
     var certifications: [String]
-    var config: ShoeConfigModel?
     var isFavorite: Bool = false
     var lastColor: String?
     var lastSize: Int?
     
-    init(id: Int, name: String, brand: String, size: [Int], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [String], origin: String, gender: String, weight: Double, colors: [String], warranty: Int, certifications: [String], config: ShoeConfigModel? = nil) {
+    init(id: Int, name: String, brand: String, size: [Int], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [String], origin: String, gender: String, weight: Double, colors: [String], warranty: Int, certifications: [String]) {
         self.id = id
         self.name = name
         self.brand = brand
@@ -48,7 +47,6 @@ final class ShoeModel {
         self.colors = colors
         self.warranty = warranty
         self.certifications = certifications
-        self.config = config
     }
 }
 
@@ -57,12 +55,7 @@ extension ShoeModel {
     actor BackgroundActor: DataInteractor {
         func importShoes() async throws {
             let shoes = try await getShoes()
-            shoes.forEach {
-                if let config = $0.config {
-                    modelContext.delete(config)
-                }
-                modelContext.delete($0)
-            }
+            shoes.forEach { modelContext.delete($0) }
             shoes.forEach { modelContext.insert($0) }
             try modelContext.save()
         }

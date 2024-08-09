@@ -26,7 +26,7 @@ struct ShoeCollectionView: View {
             .navigationTitle("Shoes")
         } detail: {
             ScrollView {
-                LazyVGrid(columns: gridColums) {
+                LazyVGrid(columns: gridColums, spacing: 20.0) {
                     ForEach(shoes) { shoe in
                         ShoeCardView(shoe: shoe)
                     }

@@ -25,7 +25,7 @@ struct ShoeDTO: Decodable {
 }
 
 extension ShoeDTO {
-    func toShoeModel(config: ShoeConfigModel?) -> ShoeModel {
+    var toShoeModel: ShoeModel {
         ShoeModel(
             id: id,
             name: name,
@@ -41,8 +41,7 @@ extension ShoeDTO {
             weight: weight,
             colors: colors,
             warranty: warranty,
-            certifications: certifications,
-            config: config
+            certifications: certifications
         )
     }
 }

@@ -12,14 +12,7 @@ protocol DataInteractor: JSONInteractor {
 
 extension DataInteractor {
     func getShoes() async throws -> [ShoeModel] {
-        async let shoesDTO = try getDTO(resource: "shoes.json", type: [ShoeDTO].self)
-        async let shoeConfisDTO = try getDTO(resource: "shoeConfigs.json", type: [ShoeConfigDTO].self)
-        
-        let (shoes, configs) = try await (shoesDTO, shoeConfisDTO)
-        
-        let configDict = Dictionary(grouping: configs, by: { $0.model3DName })
-        
-        return shoes.map { $0.toShoeModel(config: configDict[$0.model3DName]?.first?.toShoeConfigModel) }
+        try getDTO(resource: "shoes.json", type: [ShoeDTO].self).map(\.toShoeModel)
     }
 }
 
