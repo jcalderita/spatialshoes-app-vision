@@ -1,0 +1,86 @@
+[
+  {
+    "model3DName": "AirJordan",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "AirSportShoe",
+    "scale": 0.3
+  },
+  {
+    "model3DName": "ArntShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "BlueVansShoe",
+    "scale": 0.3
+  },
+  {
+    "model3DName": "CanguroShoes",
+    "scale": 0.3
+  },
+  {
+    "model3DName": "CanvasShoe",
+    "scale": 0.3
+  },
+  {
+    "model3DName": "FemaleShoes",
+    "scale": 0.9
+  },
+  {
+    "model3DName": "fashionSportShoe",
+    "scale": 0.9
+  },
+  {
+    "model3DName": "JapaneseShoesGeta",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "leatherShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "MaleShoes",
+    "scale": 0.3
+  },
+  {
+    "model3DName": "militaryShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "MoonShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "NBSportShoes",
+    "scale": 0.3
+  },
+  {
+    "model3DName": "OldManShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "oldFashionSportShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "ProvocativePinkShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "RedHighHeelShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "SkateShoes",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "WinterShoe",
+    "scale": 1.0
+  },
+  {
+    "model3DName": "WoodShoes",
+    "scale": 1.0
+  }
+]

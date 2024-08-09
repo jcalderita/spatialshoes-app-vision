@@ -1,0 +1,138 @@
+# Xcode
+.DS_Store
+.userinterface
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.xcuserdatad
+*.xcdebugger
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata
+
+# Swift Package Manager
+/.build
+/Packages
+/.swiftpm/xcode
+/.swiftpm/build
+/swiftpm/swiftpm.lock
+
+# Carthage
+/Carthage/Build
+/Carthage/Checkouts
+/Carthage/Projects/*.xcodeproj
+
+# Cocoapods
+/Pods
+/*.lock
+/*.xcworkspace
+
+# Fastlane
+/fastlane/report.xml
+/fastlane/Preview.html
+/fastlane/screenshots
+/fastlane/test_output
+/fastlane/test_output/**/*.log
+
+# Realm
+*.realm
+*.realm.lock
+*.realm.management
+
+# Firebase
+GoogleService-Info.plist
+
+# Accio dependency manager
+/.accio
+
+# Other
+*.moved-aside
+*.swp
+*.swm
+.idea
+*.idea/*
+.idea/workspace.xml
+.idea/libraries
+.idea/modules.xml
+.idea/*.iml
+*.iml
+*.hmap
+*.ipa
+
+# Objective-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Archive
+*.xcarchive
+
+# Xcode Patch
+*.xcodeproj/*project.xcworkspace/xcuserdata
+*.xcodeproj/*project.xcworkspace/xcuserdata/xcuserdatad
+*.xcworkspace/xcuserdata
+*.xcworkspace/xcuserdata/xcuserdatad
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftPM
+.swiftpm/xcode/xcshareddata
+*.swiftpm/xcode/xcshareddata
+build/
+.build/
+Package.pins
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata/xcuserdatad
+.xcuserdata/
+.xcscmblueprint
+.swiftpm
+Package.resolved
+
+# IDE specific
+*.idea/*
+*.sublime-project
+*.sublime-workspace
+.vscode/
+*.code-workspace
+*.xcuserdatad/
+*.hmap
+*.lock
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+.xcodeproj/*project.xcworkspace/xcuserdata/
+.xcodeproj/*project.xcworkspace/xcuserdata/xcuserdatad/
+.xcodeproj/*project.xcworkspace/xcuserdata/xcuserdatad/xcschemes
+*.xcodeproj/xcuserdata/xcuserdatad
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/xcuserdatad/
+*.xcworkspace/xcuserdata/xcuserdatad/xcschemes
+*.swiftpm
+.build/
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
