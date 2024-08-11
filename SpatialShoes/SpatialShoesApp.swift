@@ -12,7 +12,7 @@ struct SpatialShoesApp: App {
     var body: some Scene {
         WindowGroup {
             ShoeCollectionView()
-                .modelContainer(for: ShoeModel.self)
+                .modelContainer(for: [ShoeModel.self, ShoeColorModel.self], inMemory: false)
         }
     }
 }

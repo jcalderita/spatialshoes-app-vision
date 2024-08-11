@@ -24,14 +24,15 @@ final class ShoeModel {
     var origin: String
     var gender: String
     var weight: Double
-    var colors: [String]
+//    @Relationship(inverse: \ShoeColorModel.shoes)
+    var colors: [ShoeColorModel]
     var warranty: Int
     var certifications: [String]
     var isFavorite: Bool = false
     var lastColor: String?
     var lastSize: Int?
     
-    init(id: Int, name: String, brand: String, size: [Int], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [String], origin: String, gender: String, weight: Double, colors: [String], warranty: Int, certifications: [String]) {
+    init(id: Int, name: String, brand: String, size: [Int], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [String], origin: String, gender: String, weight: Double, warranty: Int, certifications: [String], colors: [ShoeColorModel]) {
         self.id = id
         self.name = name
         self.brand = brand
@@ -44,9 +45,9 @@ final class ShoeModel {
         self.origin = origin
         self.gender = gender
         self.weight = weight
-        self.colors = colors
         self.warranty = warranty
         self.certifications = certifications
+        self.colors = colors
     }
 }
 
@@ -55,7 +56,9 @@ extension ShoeModel {
     actor BackgroundActor: DataInteractor {
         func importShoes() async throws {
             let shoes = try await getShoes()
-            shoes.forEach { modelContext.delete($0) }
+//            let colors = try modelContext.fetch(FetchDescriptor<ShoeColorModel>())
+//            colors.forEach {modelContext.delete($0) }
+//            shoes.forEach { modelContext.delete($0) }
             shoes.forEach { modelContext.insert($0) }
             try modelContext.save()
         }

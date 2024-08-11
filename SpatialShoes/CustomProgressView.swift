@@ -18,8 +18,12 @@ struct CustomProgressView: View {
         .font(.title)
         .fontWeight(.bold)
     }
+    
+    init(_ title: String) {
+        self.title = title
+    }
 }
 
 #Preview {
-    CustomProgressView(title: "Load data")
+    CustomProgressView("Load data")
 }

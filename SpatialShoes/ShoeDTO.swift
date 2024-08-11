@@ -39,9 +39,9 @@ extension ShoeDTO {
             origin: origin,
             gender: gender,
             weight: weight,
-            colors: colors,
             warranty: warranty,
-            certifications: certifications
+            certifications: certifications,
+            colors: colors.compactMap { ShoeColorModel(id: $0 ,color: Colors(rawValue: $0) ?? Colors.unknown)}
         )
     }
 }

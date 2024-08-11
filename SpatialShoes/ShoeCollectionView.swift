@@ -12,32 +12,33 @@ struct ShoeCollectionView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \ShoeModel.model3DName) private var shoes: [ShoeModel]
     @State private var showProgress = false
-    let gridColums = [GridItem(.adaptive(minimum: 250, maximum: 300))]
+    @State var selectedShoe: ShoeModel?
+
     @State private var searchText = ""
+    private var filteredShoes: [ShoeModel] {
+        if searchText.isEmpty {
+            shoes
+        } else {
+            shoes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
     
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(shoes) { shoe in
-                    Text(shoe.name)
-                }
-            }
-            .searchable(text: $searchText)
-            .navigationTitle("Shoes")
+            ShoesListMenuView(shoes: filteredShoes, selectedShoe: $selectedShoe)
+                .searchable(text: $searchText)
         } detail: {
-            ScrollView {
-                LazyVGrid(columns: gridColums, spacing: 20.0) {
-                    ForEach(shoes) { shoe in
-                        ShoeCardView(shoe: shoe)
-                    }
-                }
-                .padding()
+            if selectedShoe != .none {
+                ShoeDetail(shoe: $selectedShoe)
+            } else {
+                ShoesGridView(shoes: filteredShoes)
             }
         }
         .overlay {
             if showProgress {
-                CustomProgressView(title: "Load data")
+                CustomProgressView("Load data")
             }
+            if filteredShoes.isEmpty { ContentUnavailableView.search }
         }
         .task {
             do {
@@ -55,11 +56,6 @@ struct ShoeCollectionView: View {
 }
 
 #Preview("Shoe Collection") {
-    ShoeCollectionView()
-        .modelContainer(ShoeModel.preview)
-}
-
-#Preview("Empty Collection") {
     ShoeCollectionView()
         .modelContainer(ShoeModel.preview)
 }

@@ -16,6 +16,9 @@ struct ShoeCardView: View {
             Text(shoe.name)
                 .font(.title)
                 .frame(depth: 250)
+//            ForEach(shoe.colors) { color in
+//                Text(color.color.rawValue)
+//            }
         }
         .frame(width: 250, height: 300)
         .padding()

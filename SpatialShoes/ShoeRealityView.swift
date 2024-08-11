@@ -25,7 +25,7 @@ struct ShoeRealityView: View {
                 }
                 .rotation3DEffect(Angle(degrees: angle), axis: .y)
             } else {
-                CustomProgressView(title: "Load shoe")
+                CustomProgressView("Load shoe")
             }
         }
         .task {
