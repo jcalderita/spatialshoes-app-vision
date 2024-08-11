@@ -25,33 +25,10 @@ struct ShoeDetail: View {
                     }
                     VStack {
                         Spacer()
-                        Text("Available sizes")
-                            .font(.title)
-                        HStack {
-                            ForEach(shoe.size, id: \.self) { size in
-                                Button {
-                                    
-                                } label: {
-                                    Text(size.formatted(.number))
-                                }
-
-                            }
-                        }
+                        DetailSizesView(shoe: shoe)
                         ShoeRealityView(model3DName: shoe.model3DName)
                             .frame(maxHeight: 400)
-                        Text("Available Colors")
-                            .font(.title)
-                        HStack {
-                            ForEach(shoe.colors) { color in
-                                Text(String.init(repeating: " ", count: 15))
-                                    .padding()
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundStyle(color.color.color)
-                                    }
-                            }
-                        }
-                        .padding()
+                        DetailColorsView(colors: shoe.colors)
                         Spacer()
                     }
                 }

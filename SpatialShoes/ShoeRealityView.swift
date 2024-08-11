@@ -11,6 +11,7 @@ import RealityShoeGallery
 
 struct ShoeRealityView: View {
     let model3DName: String
+    let size: Double? = .none
     
     @State private var shoeModel: Entity?
     @State private var angle: Double = 0.0

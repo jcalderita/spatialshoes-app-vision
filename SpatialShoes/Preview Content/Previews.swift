@@ -91,3 +91,19 @@ extension ShoeDetail {
         }
     }
 }
+
+extension DetailColorsView {
+    static var preview: some View {
+        NavigationStack {
+            DetailColorsView(colors: ShoeModel.firstTest.colors)
+        }
+    }
+}
+
+extension DetailSizesView {
+    static var preview: some View {
+        NavigationStack {
+            DetailSizesView(shoe: ShoeModel.firstTest)
+        }
+    }
+}

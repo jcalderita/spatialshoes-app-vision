@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E33BC66E2C68A88400065C92 /* SizeStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33BC66D2C68A88400065C92 /* SizeStyleModifier.swift */; };
 		E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3413D192C6683D300204926 /* ShoeColorModel.swift */; };
 		E36659C12C664F76005D13FE /* RealityShoeGallery in Frameworks */ = {isa = PBXBuildFile; productRef = E36659C02C664F76005D13FE /* RealityShoeGallery */; };
 		E36659C32C665A4B005D13FE /* ShoeRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36659C22C665A4B005D13FE /* ShoeRealityView.swift */; };
@@ -18,6 +19,8 @@
 		E3AFB9F52C679E0700789863 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9F42C679E0700789863 /* DetailHeaderView.swift */; };
 		E3AFB9F72C67AB3700789863 /* DetailSpecificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9F62C67AB3700789863 /* DetailSpecificationView.swift */; };
 		E3AFB9F92C67ABD500789863 /* DetailPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9F82C67ABD500789863 /* DetailPriceView.swift */; };
+		E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EB0A872C68968600D8EFAB /* DetailColorsView.swift */; };
+		E3EB0A8A2C689E9900D8EFAB /* DetailSizesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EB0A892C689E9900D8EFAB /* DetailSizesView.swift */; };
 		E3F196352C63B904004B6D18 /* SpatialShoesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F196322C63B904004B6D18 /* SpatialShoesApp.swift */; };
 		E3F196362C63B904004B6D18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F1962D2C63B904004B6D18 /* Preview Assets.xcassets */; };
 		E3F196372C63B904004B6D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F1962F2C63B904004B6D18 /* Assets.xcassets */; };
@@ -34,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E33BC66D2C68A88400065C92 /* SizeStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeStyleModifier.swift; sourceTree = "<group>"; };
 		E3413D192C6683D300204926 /* ShoeColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeColorModel.swift; sourceTree = "<group>"; };
 		E36659C22C665A4B005D13FE /* ShoeRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeRealityView.swift; sourceTree = "<group>"; };
 		E398A1552C64C8F7008B810C /* ShoeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCardView.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		E3AFB9F42C679E0700789863 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		E3AFB9F62C67AB3700789863 /* DetailSpecificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpecificationView.swift; sourceTree = "<group>"; };
 		E3AFB9F82C67ABD500789863 /* DetailPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPriceView.swift; sourceTree = "<group>"; };
+		E3EB0A872C68968600D8EFAB /* DetailColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailColorsView.swift; sourceTree = "<group>"; };
+		E3EB0A892C689E9900D8EFAB /* DetailSizesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSizesView.swift; sourceTree = "<group>"; };
 		E3F196162C63B8EF004B6D18 /* SpatialShoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialShoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F1962D2C63B904004B6D18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E3F1962F2C63B904004B6D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 		E398A15C2C64E4BB008B810C /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				E33BC66D2C68A88400065C92 /* SizeStyleModifier.swift */,
 			);
 			name = Modifiers;
 			sourceTree = "<group>";
@@ -99,6 +106,8 @@
 				E3AFB9F42C679E0700789863 /* DetailHeaderView.swift */,
 				E3AFB9F62C67AB3700789863 /* DetailSpecificationView.swift */,
 				E3AFB9F82C67ABD500789863 /* DetailPriceView.swift */,
+				E3EB0A892C689E9900D8EFAB /* DetailSizesView.swift */,
+				E3EB0A872C68968600D8EFAB /* DetailColorsView.swift */,
 			);
 			name = DetailsView;
 			sourceTree = "<group>";
@@ -307,12 +316,15 @@
 				E3AFB9F52C679E0700789863 /* DetailHeaderView.swift in Sources */,
 				E3F1964F2C63D2B9004B6D18 /* Previews.swift in Sources */,
 				E3F196512C63D8BC004B6D18 /* ShoeCollectionView.swift in Sources */,
+				E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */,
+				E33BC66E2C68A88400065C92 /* SizeStyleModifier.swift in Sources */,
 				E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */,
 				E398A1602C64EC4D008B810C /* CustomProgressView.swift in Sources */,
 				E398A1562C64C8F7008B810C /* ShoeCardView.swift in Sources */,
 				E3F1964D2C63C804004B6D18 /* ResourceErrors.swift in Sources */,
 				E3AFB9EE2C67730000789863 /* ShoesGridView.swift in Sources */,
 				E3F196352C63B904004B6D18 /* SpatialShoesApp.swift in Sources */,
+				E3EB0A8A2C689E9900D8EFAB /* DetailSizesView.swift in Sources */,
 				E3F196412C63BCAE004B6D18 /* JSONInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
