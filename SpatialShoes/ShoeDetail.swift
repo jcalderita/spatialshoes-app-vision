@@ -26,7 +26,9 @@ struct ShoeDetail: View {
                     VStack {
                         Spacer()
                         DetailSizesView(shoe: shoe)
-                        ShoeRealityView(model3DName: shoe.model3DName)
+                            .id(shoe.name)
+                        DetailShoeRealityView(model3DName: shoe.model3DName)
+                            .id(shoe.model3DName)
                             .frame(maxHeight: 400)
                         DetailColorsView(colors: shoe.colors)
                         Spacer()

@@ -12,7 +12,8 @@ struct ShoeCollectionView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \ShoeModel.model3DName) private var shoes: [ShoeModel]
     @State private var showProgress = false
-    @State var selectedShoe: ShoeModel?
+    @State private var selectedShoe: ShoeModel?
+    @State private var favorites = false
 
     @State private var searchText = ""
     private var filteredShoes: [ShoeModel] {
@@ -39,6 +40,18 @@ struct ShoeCollectionView: View {
                 CustomProgressView("Load data")
             }
             if filteredShoes.isEmpty { ContentUnavailableView.search }
+        }
+        .toolbar {
+            ToolbarItem(placement: .bottomOrnament) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "heart")
+                        .font(.extraLargeTitle)
+                }
+
+
+            }
         }
         .task {
             do {

@@ -9,10 +9,23 @@ import SwiftUI
 
 @main
 struct SpatialShoesApp: App {
+    @State private var model = ViewModel.shared
+    
     var body: some Scene {
         WindowGroup {
             ShoeCollectionView()
                 .modelContainer(for: [ShoeModel.self, ShoeColorModel.self], inMemory: false)
         }
+        .windowResizability(.contentSize)
+        
+        WindowGroup(id: "volumetricShoe") {
+            ShoeVolumetricView(model3DName: model.selectedModel3DName)
+        }
+        .windowStyle(.volumetric)
+//        .defaultWindowPlacement({ _, _ in
+//            WindowPlacement(.utilityPanel)
+//        })
+//        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
+//        .windowResizability(.contentSize)
     }
 }

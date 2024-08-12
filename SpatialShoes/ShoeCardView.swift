@@ -12,13 +12,10 @@ struct ShoeCardView: View {
     
     var body: some View {
         VStack {
-            ShoeRealityView(model3DName: shoe.model3DName)
+            DetailShoeRealityView(model3DName: shoe.model3DName)
             Text(shoe.name)
                 .font(.title)
                 .frame(depth: 250)
-//            ForEach(shoe.colors) { color in
-//                Text(color.color.rawValue)
-//            }
         }
         .frame(width: 250, height: 300)
         .padding()

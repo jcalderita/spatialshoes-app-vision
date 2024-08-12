@@ -9,19 +9,33 @@ import SwiftUI
 
 struct DetailSizesView: View {
     let shoe: ShoeModel
+    @State private var sizeSelection: Int = 0
     
     var body: some View {
         Text("Available sizes")
             .font(.title)
         HStack {
-            ForEach(shoe.size, id: \.self) { size in
-                Button {
-                    shoe.lastSize = size == shoe.lastSize ? .none : size
-                } label: {
+            Picker("Sizes", selection: $sizeSelection) {
+                ForEach(shoe.size, id: \.self) { size in
                     Text(size.formatted(.number))
-                        .sizeStyleModifier(apply: shoe.lastSize == size)
                 }
             }
+            .pickerStyle(.segmented)
+            .frame(maxWidth: 350)
+            .onChange(of: sizeSelection) { _, newValue in
+                shoe.lastSize = newValue
+            }
+            .task {
+                sizeSelection = shoe.lastSize ?? 0
+            }
+//            ForEach(shoe.size, id: \.self) { size in
+//                Button {
+//                    shoe.lastSize = size == shoe.lastSize ? .none : size
+//                } label: {
+//                    Text(size.formatted(.number))
+//                        .sizeStyleModifier(apply: shoe.lastSize == size)
+//                }
+//            }
         }
     }
 }

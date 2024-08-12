@@ -9,7 +9,10 @@ import SwiftUI
 import RealityKit
 import RealityShoeGallery
 
-struct ShoeRealityView: View {
+struct DetailShoeRealityView: View {
+    @Environment(\.openWindow) private var open
+    @Environment(\.dismissWindow) private var dismiss
+    
     let model3DName: String
     let size: Double? = .none
     
@@ -20,11 +23,19 @@ struct ShoeRealityView: View {
     var body: some View {
         Group {
             if let shoeModel {
-                RealityView { content in
-                    shoeModel.scale = SIMD3(repeating: 0.03)
-                    content.add(shoeModel)
+                Button {
+//                    dismiss(id: "volumetricShoe")
+                    ViewModel.shared.selectedModel3DName = model3DName
+                    open(id: "volumetricShoe")
+                    
+                } label: {
+                    RealityView { content in
+                        shoeModel.scale = SIMD3(repeating: 0.03)
+                        content.add(shoeModel)
+                    }
+                    .rotation3DEffect(Angle(degrees: angle), axis: .y)
                 }
-                .rotation3DEffect(Angle(degrees: angle), axis: .y)
+                .buttonStyle(.plain)
             } else {
                 CustomProgressView("Load shoe")
             }
@@ -52,5 +63,5 @@ struct ShoeRealityView: View {
 }
 
 #Preview {
-    ShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
+    DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
 }
