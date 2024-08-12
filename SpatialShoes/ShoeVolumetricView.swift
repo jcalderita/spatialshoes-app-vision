@@ -11,12 +11,8 @@ import RealityShoeGallery
 struct ShoeVolumetricView: View {
     let model3DName: String
     
-    @State private var rotation: Angle = .zero
-    @State private var rotationAxis: (x: CGFloat, y: CGFloat, z: CGFloat) = (x: 0, y: 0, z: 0)
     @State private var shoeModel: Entity?
-    
-    @State private var currentAngleX: Float = 0.0
-    @State private var currentAngleY: Float = 0.0
+    @State private var currentRotation = simd_quatf(angle: 0, axis: SIMD3(0, 1, 0))
     
     var body: some View {
         Group {
@@ -28,11 +24,11 @@ struct ShoeVolumetricView: View {
                     shoeModel.components.set(InputTargetComponent())
                     content.add(shoeModel)
                 }
-                .gesture(DragGesture().onChanged { gesture in
-                    handleRotation(value: gesture) { rotation in
-                        shoeModel.transform.rotation = rotation
-                    }
-                })
+                .gesture(
+                    DragGesture()
+                        .onChanged { shoeModel.transform.rotation = rotationByGesture($0) }
+                        .onEnded{ currentRotation = rotationByGesture($0) }
+                )
             } else {
                 CustomProgressView("Load volumetric shoe")
             }
@@ -42,20 +38,8 @@ struct ShoeVolumetricView: View {
         }
     }
     
-    private func handleRotation(value: DragGesture.Value, updateRotation: (simd_quatf) -> Void) {
-        let dragAmountX = Float(value.translation.height)
-        let dragAmountY = Float(value.translation.width)
-        
-        let angleDeltaX = dragAmountX / 500.0
-        let angleDeltaY = dragAmountY / 500.0
-        
-        currentAngleX += angleDeltaX
-        currentAngleY += angleDeltaY
-        
-        let rotationX = simd_quatf(angle: currentAngleX, axis: SIMD3(1, 0, 0))
-        let rotationY = simd_quatf(angle: currentAngleY, axis: SIMD3(0, 1, 0))
-        
-        updateRotation(rotationY * rotationY)
+    private func rotationByGesture(_ value: DragGesture.Value) -> simd_quatf {
+        simd_quatf(angle: Float(value.translation.width) / 200.0, axis: SIMD3(0, 1, 0)) * simd_quatf(angle: Float(value.translation.height) / 200.0, axis: SIMD3(1, 0, 0)) * currentRotation
     }
 }
 
