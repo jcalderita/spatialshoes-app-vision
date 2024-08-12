@@ -35,7 +35,6 @@ struct ShoeCollectionView: View {
                 showProgress = true
                 let bgActor = ShoeModel.BackgroundActor(modelContainer: modelContext.container)
                 try await bgActor.importShoes()
-                try await Task.sleep(nanoseconds: 5_000_000_000)
                 showProgress = false
             } catch {
                 showProgress = false

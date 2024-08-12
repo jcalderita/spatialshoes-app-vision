@@ -11,10 +11,9 @@ import RealityShoeGallery
 
 struct DetailShoeRealityView: View {
     @Environment(\.openWindow) private var open
-    @Environment(\.dismissWindow) private var dismiss
     
     let model3DName: String
-    let size: Double? = .none
+    let size: Int?
     
     @State private var shoeModel: Entity?
     @State private var angle: Double = 0.0
@@ -24,13 +23,12 @@ struct DetailShoeRealityView: View {
         Group {
             if let shoeModel {
                 Button {
-//                    dismiss(id: "volumetricShoe")
                     ViewModel.shared.selectedModel3DName = model3DName
                     open(id: "volumetricShoe")
                     
                 } label: {
                     RealityView { content in
-                        shoeModel.scale = SIMD3(repeating: 0.03)
+                        shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? 40) - 40.0) * 0.005))
                         content.add(shoeModel)
                     }
                     .rotation3DEffect(Angle(degrees: angle), axis: .y)
@@ -63,5 +61,5 @@ struct DetailShoeRealityView: View {
 }
 
 #Preview {
-    DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
+    DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName, size: .none)
 }

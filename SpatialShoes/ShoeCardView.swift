@@ -12,7 +12,7 @@ struct ShoeCardView: View {
     
     var body: some View {
         VStack {
-            DetailShoeRealityView(model3DName: shoe.model3DName)
+            DetailShoeRealityView(model3DName: shoe.model3DName, size: nil)
             Text(shoe.name)
                 .font(.title)
                 .frame(depth: 250)

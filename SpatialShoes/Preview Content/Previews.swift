@@ -103,7 +103,9 @@ extension DetailColorsView {
 extension DetailSizesView {
     static var preview: some View {
         NavigationStack {
-            DetailSizesView(shoe: ShoeModel.firstTest)
+            DetailSizesView(shoe: ShoeModel.firstTest) { size in
+//                print(size)
+            }
         }
     }
 }

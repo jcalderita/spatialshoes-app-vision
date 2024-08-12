@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailSizesView: View {
     let shoe: ShoeModel
     @State private var sizeSelection: Int = 0
+    let sizeFunction: (Int) -> Void
     
     var body: some View {
         Text("Available sizes")
@@ -23,7 +24,7 @@ struct DetailSizesView: View {
             .pickerStyle(.segmented)
             .frame(maxWidth: 350)
             .onChange(of: sizeSelection) { _, newValue in
-                shoe.lastSize = newValue
+                sizeFunction(newValue)
             }
             .task {
                 sizeSelection = shoe.lastSize ?? 0
