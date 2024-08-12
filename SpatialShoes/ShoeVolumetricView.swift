@@ -39,7 +39,7 @@ struct ShoeVolumetricView: View {
     }
     
     private func rotationByGesture(_ value: DragGesture.Value) -> simd_quatf {
-        simd_quatf(angle: Float(value.translation.width) / 200.0, axis: SIMD3(0, 1, 0)) * simd_quatf(angle: Float(value.translation.height) / 200.0, axis: SIMD3(1, 0, 0)) * currentRotation
+        simd_quatf(angle: Float(value.translation.width) / 100.0, axis: SIMD3(0, 1, 0)) * simd_quatf(angle: Float(value.translation.height) / 100.0, axis: SIMD3(1, 0, 0)) * currentRotation
     }
 }
 

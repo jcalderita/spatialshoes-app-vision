@@ -22,10 +22,14 @@ struct SpatialShoesApp: App {
             ShoeVolumetricView(model3DName: model.selectedModel3DName)
         }
         .windowStyle(.volumetric)
-//        .defaultWindowPlacement({ _, _ in
-//            WindowPlacement(.utilityPanel)
-//        })
-//        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
-//        .windowResizability(.contentSize)
+        .defaultWindowPlacement { content, context in
+            if context.windows.last?.id == "volumetricShoe" {
+                WindowPlacement(.trailing(context.windows.last!))
+            } else {
+                WindowPlacement(.utilityPanel)
+            }
+        }
+        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
+        .windowResizability(.contentSize)
     }
 }
