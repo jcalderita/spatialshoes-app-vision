@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E33BC66E2C68A88400065C92 /* SizeStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33BC66D2C68A88400065C92 /* SizeStyleModifier.swift */; };
 		E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3413D192C6683D300204926 /* ShoeColorModel.swift */; };
 		E36659C12C664F76005D13FE /* RealityShoeGallery in Frameworks */ = {isa = PBXBuildFile; productRef = E36659C02C664F76005D13FE /* RealityShoeGallery */; };
 		E36659C32C665A4B005D13FE /* DetailShoeRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36659C22C665A4B005D13FE /* DetailShoeRealityView.swift */; };
@@ -41,7 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E33BC66D2C68A88400065C92 /* SizeStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeStyleModifier.swift; sourceTree = "<group>"; };
 		E3413D192C6683D300204926 /* ShoeColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeColorModel.swift; sourceTree = "<group>"; };
 		E36659C22C665A4B005D13FE /* DetailShoeRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShoeRealityView.swift; sourceTree = "<group>"; };
 		E398A1552C64C8F7008B810C /* ShoeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCardView.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		E398A15C2C64E4BB008B810C /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				E33BC66D2C68A88400065C92 /* SizeStyleModifier.swift */,
 			);
 			name = Modifiers;
 			sourceTree = "<group>";
@@ -346,7 +343,6 @@
 				E3F1964F2C63D2B9004B6D18 /* Previews.swift in Sources */,
 				E3F196512C63D8BC004B6D18 /* ShoeCollectionView.swift in Sources */,
 				E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */,
-				E33BC66E2C68A88400065C92 /* SizeStyleModifier.swift in Sources */,
 				E3D2B1FB2C6A46CF002B445D /* ShoesSplitView.swift in Sources */,
 				E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */,
 				E398A1602C64EC4D008B810C /* CustomProgressView.swift in Sources */,
