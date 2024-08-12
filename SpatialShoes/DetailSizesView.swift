@@ -28,14 +28,6 @@ struct DetailSizesView: View {
             .task {
                 sizeSelection = shoe.lastSize ?? 0
             }
-//            ForEach(shoe.size, id: \.self) { size in
-//                Button {
-//                    shoe.lastSize = size == shoe.lastSize ? .none : size
-//                } label: {
-//                    Text(size.formatted(.number))
-//                        .sizeStyleModifier(apply: shoe.lastSize == size)
-//                }
-//            }
         }
     }
 }

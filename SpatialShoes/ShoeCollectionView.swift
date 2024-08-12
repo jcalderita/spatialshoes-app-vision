@@ -10,61 +10,38 @@ import SwiftData
 
 struct ShoeCollectionView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \ShoeModel.model3DName) private var shoes: [ShoeModel]
     @State private var showProgress = false
-    @State private var selectedShoe: ShoeModel?
     @State private var favorites = false
-
-    @State private var searchText = ""
-    private var filteredShoes: [ShoeModel] {
-        if searchText.isEmpty {
-            shoes
-        } else {
-            shoes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
     
     var body: some View {
-        NavigationSplitView {
-            ShoesListMenuView(shoes: filteredShoes, selectedShoe: $selectedShoe)
-                .searchable(text: $searchText)
-        } detail: {
-            if selectedShoe != .none {
-                ShoeDetail(shoe: $selectedShoe)
-            } else {
-                ShoesGridView(shoes: filteredShoes)
-            }
-        }
-        .overlay {
-            if showProgress {
-                CustomProgressView("Load data")
-            }
-            if filteredShoes.isEmpty { ContentUnavailableView.search }
-        }
+        ShoesSplitView(favorites: favorites, showProgress: showProgress)
         .toolbar {
             ToolbarItem(placement: .bottomOrnament) {
                 Button {
-                    
+                    favorites.toggle()
                 } label: {
                     Image(systemName: "heart")
                         .font(.extraLargeTitle)
+                        .symbolVariant(favorites ? .fill : .none)
+                        .foregroundStyle(favorites ? .red : .primary)
                 }
-
-
             }
+        }
+        .onChange(of: favorites) {
+            NotificationCenter.default.post(name: .resetShoeModel, object: nil)
         }
         .task {
             do {
                 showProgress = true
                 let bgActor = ShoeModel.BackgroundActor(modelContainer: modelContext.container)
                 try await bgActor.importShoes()
+                try await Task.sleep(nanoseconds: 5_000_000_000)
                 showProgress = false
             } catch {
                 showProgress = false
                 print(error)
             }
         }
-
     }
 }
 
