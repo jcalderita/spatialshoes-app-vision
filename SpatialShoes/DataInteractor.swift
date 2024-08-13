@@ -7,12 +7,13 @@
 import Foundation
 
 protocol DataInteractor: JSONInteractor {
+    static var resourceName: String { get }
     func getShoes() async throws -> [ShoeModel]
 }
 
 extension DataInteractor {
     func getShoes() async throws -> [ShoeModel] {
-        try getDTO(resource: "shoes.json", type: [ShoeDTO].self).map(\.toShoeModel)
+        return try getDTO(resource: Self.resourceName, type: [ShoeDTO].self).map(\.toShoeModel)
     }
 }
 
@@ -24,4 +25,8 @@ extension DataInteractor {
         }
         return try loadJSON(url: url, type: type)
     }
+}
+
+struct DefaultDataInteractor: DataInteractor {
+    static var resourceName: String { "shoes.json" }
 }

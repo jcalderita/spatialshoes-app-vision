@@ -53,12 +53,9 @@ final class ShoeModel {
 
 extension ShoeModel {
     @ModelActor
-    actor BackgroundActor: DataInteractor {
-        func importShoes() async throws {
-            let shoes = try await getShoes()
-//            let colors = try modelContext.fetch(FetchDescriptor<ShoeColorModel>())
-//            colors.forEach {modelContext.delete($0) }
-//            shoes.forEach { modelContext.delete($0) }
+    actor BackgroundActor {
+        func importShoes(using interactor: DataInteractor) async throws {
+            let shoes = try await interactor.getShoes()
             shoes.forEach { modelContext.insert($0) }
             try modelContext.save()
         }

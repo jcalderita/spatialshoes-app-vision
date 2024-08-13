@@ -109,3 +109,7 @@ extension DetailSizesView {
         }
     }
 }
+
+struct PreviewDataInteractor: DataInteractor {
+    static var resourceName: String { "shoesTest.json" }
+}

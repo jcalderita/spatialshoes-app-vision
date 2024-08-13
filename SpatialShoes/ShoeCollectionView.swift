@@ -13,6 +13,12 @@ struct ShoeCollectionView: View {
     @State private var showProgress = false
     @State private var favorites = false
     
+    private var dataInteractor: DataInteractor
+    
+    init(dataInteractor: DataInteractor = DefaultDataInteractor()) {
+        self.dataInteractor = dataInteractor
+    }
+    
     var body: some View {
         ShoesSplitView(favorites: favorites, showProgress: showProgress)
         .toolbar {
@@ -34,7 +40,7 @@ struct ShoeCollectionView: View {
             do {
                 showProgress = true
                 let bgActor = ShoeModel.BackgroundActor(modelContainer: modelContext.container)
-                try await bgActor.importShoes()
+                try await bgActor.importShoes(using: dataInteractor)
                 showProgress = false
             } catch {
                 showProgress = false
@@ -45,6 +51,6 @@ struct ShoeCollectionView: View {
 }
 
 #Preview("Shoe Collection") {
-    ShoeCollectionView()
+    ShoeCollectionView(dataInteractor: PreviewDataInteractor())
         .modelContainer(ShoeModel.preview)
 }
