@@ -15,24 +15,23 @@ final class ShoeModel {
     var id: Int
     var name: String
     var brand: String
-    var size: [Int]
+    var size: [ShoeSizeModel]
     var price: Double
     var specification: String
     var model3DName: String
     var type: ShoeType
-    var materials: [String]
+    var materials: [ShoeMaterialModel]
     var origin: String
     var gender: String
     var weight: Double
-//    @Relationship(inverse: \ShoeColorModel.shoes)
     var colors: [ShoeColorModel]
     var warranty: Int
-    var certifications: [String]
+    var certifications: [ShoeCertificationModel]
     var isFavorite: Bool = false
     var lastColor: String?
     var lastSize: Int?
     
-    init(id: Int, name: String, brand: String, size: [Int], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [String], origin: String, gender: String, weight: Double, warranty: Int, certifications: [String], colors: [ShoeColorModel]) {
+    init(id: Int, name: String, brand: String, size: [ShoeSizeModel], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [ShoeMaterialModel], origin: String, gender: String, weight: Double, warranty: Int, certifications: [ShoeCertificationModel], colors: [ShoeColorModel]) {
         self.id = id
         self.name = name
         self.brand = brand

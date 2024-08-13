@@ -28,6 +28,9 @@
 		E3AFB9F92C67ABD500789863 /* DetailPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9F82C67ABD500789863 /* DetailPriceView.swift */; };
 		E3D2B1FB2C6A46CF002B445D /* ShoesSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2B1FA2C6A46CF002B445D /* ShoesSplitView.swift */; };
 		E3D2B1FD2C6A5A81002B445D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2B1FC2C6A5A79002B445D /* Notification.swift */; };
+		E3E4E2462C6BB5C80013BFCA /* ShoeSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4E2452C6BB5C20013BFCA /* ShoeSizeModel.swift */; };
+		E3E4E2482C6BB9F00013BFCA /* ShoeMaterialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4E2472C6BB9EA0013BFCA /* ShoeMaterialModel.swift */; };
+		E3E4E24A2C6BBBAC0013BFCA /* ShoeCertificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E4E2492C6BBBA30013BFCA /* ShoeCertificationModel.swift */; };
 		E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EB0A872C68968600D8EFAB /* DetailColorsView.swift */; };
 		E3EB0A8A2C689E9900D8EFAB /* DetailSizesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EB0A892C689E9900D8EFAB /* DetailSizesView.swift */; };
 		E3F196352C63B904004B6D18 /* SpatialShoesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F196322C63B904004B6D18 /* SpatialShoesApp.swift */; };
@@ -66,6 +69,9 @@
 		E3AFB9F82C67ABD500789863 /* DetailPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPriceView.swift; sourceTree = "<group>"; };
 		E3D2B1FA2C6A46CF002B445D /* ShoesSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesSplitView.swift; sourceTree = "<group>"; };
 		E3D2B1FC2C6A5A79002B445D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		E3E4E2452C6BB5C20013BFCA /* ShoeSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSizeModel.swift; sourceTree = "<group>"; };
+		E3E4E2472C6BB9EA0013BFCA /* ShoeMaterialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeMaterialModel.swift; sourceTree = "<group>"; };
+		E3E4E2492C6BBBA30013BFCA /* ShoeCertificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCertificationModel.swift; sourceTree = "<group>"; };
 		E3EB0A872C68968600D8EFAB /* DetailColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailColorsView.swift; sourceTree = "<group>"; };
 		E3EB0A892C689E9900D8EFAB /* DetailSizesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSizesView.swift; sourceTree = "<group>"; };
 		E3F196162C63B8EF004B6D18 /* SpatialShoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialShoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +251,9 @@
 			children = (
 				E3F196442C63BE1B004B6D18 /* ShoeModel.swift */,
 				E3413D192C6683D300204926 /* ShoeColorModel.swift */,
+				E3E4E2452C6BB5C20013BFCA /* ShoeSizeModel.swift */,
+				E3E4E2472C6BB9EA0013BFCA /* ShoeMaterialModel.swift */,
+				E3E4E2492C6BBBA30013BFCA /* ShoeCertificationModel.swift */,
 				E3F196462C63C126004B6D18 /* ShoeDTO.swift */,
 			);
 			name = Models;
@@ -380,6 +389,8 @@
 				E3AFB9F72C67AB3700789863 /* DetailSpecificationView.swift in Sources */,
 				E3F196472C63C12D004B6D18 /* ShoeDTO.swift in Sources */,
 				E3F1964A2C63C6D1004B6D18 /* StringExtension.swift in Sources */,
+				E3E4E2482C6BB9F00013BFCA /* ShoeMaterialModel.swift in Sources */,
+				E3E4E2462C6BB5C80013BFCA /* ShoeSizeModel.swift in Sources */,
 				E3F196432C63BD9E004B6D18 /* DataInteractor.swift in Sources */,
 				E36659C32C665A4B005D13FE /* DetailShoeRealityView.swift in Sources */,
 				E3F196542C63E722004B6D18 /* ModelEnums.swift in Sources */,
@@ -388,6 +399,7 @@
 				E3F1964F2C63D2B9004B6D18 /* Previews.swift in Sources */,
 				E3A7592B2C6B870A0050A270 /* ShoeModelPreview.swift in Sources */,
 				E3F196512C63D8BC004B6D18 /* ShoeCollectionView.swift in Sources */,
+				E3E4E24A2C6BBBAC0013BFCA /* ShoeCertificationModel.swift in Sources */,
 				E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */,
 				E3D2B1FB2C6A46CF002B445D /* ShoesSplitView.swift in Sources */,
 				E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */,

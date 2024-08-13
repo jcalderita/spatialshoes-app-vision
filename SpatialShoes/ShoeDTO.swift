@@ -30,17 +30,17 @@ extension ShoeDTO {
             id: id,
             name: name,
             brand: brand,
-            size: size,
+            size: size.compactMap { ShoeSizeModel($0)},
             price: price,
             specification: description,
             model3DName: model3DName,
             type: ShoeType(rawValue: type) ?? ShoeType.unknown,
-            materials: materials,
+            materials: materials.compactMap { ShoeMaterialModel($0)},
             origin: origin,
             gender: gender,
             weight: weight,
             warranty: warranty,
-            certifications: certifications,
+            certifications: certifications.compactMap { ShoeCertificationModel($0) },
             colors: colors.compactMap { ShoeColorModel(id: $0 ,color: Colors(rawValue: $0) ?? Colors.unknown)}
         )
     }

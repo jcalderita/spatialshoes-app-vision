@@ -16,8 +16,9 @@ struct DetailSizesView: View {
             .font(.title)
         HStack {
             Picker("Sizes", selection: $sizeSelection) {
-                ForEach(shoe.size, id: \.self) { size in
-                    Text(size.formatted(.number))
+                ForEach(shoe.size.sorted()) { sizeModel in
+                    Text(sizeModel.size.formatted(.number))
+                        .tag(sizeModel.size)
                 }
             }
             .pickerStyle(.segmented)
