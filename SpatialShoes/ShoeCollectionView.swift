@@ -9,15 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct ShoeCollectionView: View {
+    @Environment(ViewModel.self) private var vm
     @Environment(\.modelContext) private var modelContext
     @State private var showProgress = false
     @State private var favorites = false
-    
-    private var dataInteractor: DataInteractor
-    
-    init(dataInteractor: DataInteractor = DefaultDataInteractor()) {
-        self.dataInteractor = dataInteractor
-    }
     
     var body: some View {
         ShoesSplitView(favorites: favorites, showProgress: showProgress)
@@ -40,7 +35,7 @@ struct ShoeCollectionView: View {
             do {
                 showProgress = true
                 let bgActor = ShoeModel.BackgroundActor(modelContainer: modelContext.container)
-                try await bgActor.importShoes(using: dataInteractor)
+                try await bgActor.importShoes(using: vm.interactor)
                 showProgress = false
             } catch {
                 showProgress = false
@@ -51,6 +46,8 @@ struct ShoeCollectionView: View {
 }
 
 #Preview("Shoe Collection") {
-    ShoeCollectionView(dataInteractor: PreviewDataInteractor())
-        .modelContainer(ShoeModel.preview)
+    ShoeCollectionView()
+        .environment(ViewModel(interactor: PreviewDataInteractor()))
+        .modelContainer(for: [ShoeModel.self, ShoeColorModel.self], inMemory: false)
+//        .modelContainer(ShoeModel.preview)
 }

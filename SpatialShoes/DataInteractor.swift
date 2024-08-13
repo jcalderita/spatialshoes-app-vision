@@ -12,7 +12,10 @@ protocol DataInteractor: JSONInteractor {
 }
 
 extension DataInteractor {
+    static var resourceName: String { "shoes.json" }
+    
     func getShoes() async throws -> [ShoeModel] {
+        print(Self.resourceName)
         return try getDTO(resource: Self.resourceName, type: [ShoeDTO].self).map(\.toShoeModel)
     }
 }
@@ -27,6 +30,4 @@ extension DataInteractor {
     }
 }
 
-struct DefaultDataInteractor: DataInteractor {
-    static var resourceName: String { "shoes.json" }
-}
+struct DefaultDataInteractor: DataInteractor { }

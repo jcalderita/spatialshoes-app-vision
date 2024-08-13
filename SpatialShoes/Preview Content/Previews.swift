@@ -111,5 +111,5 @@ extension DetailSizesView {
 }
 
 struct PreviewDataInteractor: DataInteractor {
-    static var resourceName: String { "shoesTest.json" }
+    static var resourceName: String { "shoesPreview.json" }
 }
