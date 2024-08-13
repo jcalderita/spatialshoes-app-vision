@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeartToolbarItemView: ToolbarContent {
+struct HeartToolbarItemContent: ToolbarContent {
     let favorites: Bool
     let heartFunction: () -> Void
     
@@ -26,5 +26,5 @@ struct HeartToolbarItemView: ToolbarContent {
 }
 
 #Preview {
-    HeartToolbarItemView.preview
+    HeartToolbarItemContent.preview
 }

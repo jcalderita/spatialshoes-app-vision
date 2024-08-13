@@ -21,19 +21,13 @@ struct ShoeDetail: View {
                 HStack {
                     VStack {
                         DetailSpecificationView(shoe: shoe)
-                            .id(shoe.name)
                         DetailPriceView(price: shoe.price)
-                            .id(shoe.name)
                     }
                     VStack {
                         Spacer()
-                        DetailSizesView(shoe: shoe) { size in
+                        DetailSizeAndShoeView(shoe: shoe) { size in
                             shoe.lastSize = size
                         }
-                       .id(shoe.name)
-                        DetailShoeRealityView(model3DName: shoe.model3DName, size: shoe.lastSize)
-                            .id("\(shoe.model3DName)\(shoe.lastSize ?? 0)")
-                            .frame(maxHeight: 400)
                         DetailColorsView(colors: shoe.colors)
                         Spacer()
                     }

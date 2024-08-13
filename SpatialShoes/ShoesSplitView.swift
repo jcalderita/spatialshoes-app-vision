@@ -34,6 +34,7 @@ struct ShoesSplitView: View {
         } detail: {
             if selectedShoe != .none {
                 ShoeDetail(shoe: $selectedShoe)
+                    .id(selectedShoe?.name)
             } else {
                 ShoesGridView(shoes: filteredShoes)
             }

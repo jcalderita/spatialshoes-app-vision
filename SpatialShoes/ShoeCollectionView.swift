@@ -15,7 +15,7 @@ struct ShoeCollectionView: View {
     var body: some View {
         ShoesSplitView(favorites: vm.favorites, showProgress: vm.showProgress)
         .toolbar {
-            HeartToolbarItemView(favorites: vm.favorites) {
+            HeartToolbarItemContent(favorites: vm.favorites) {
                 vm.toggleFavorites()
             }
         }

@@ -13,7 +13,7 @@ struct DetailShoeRealityView: View {
     @Environment(\.openWindow) private var open
     
     let model3DName: String
-    let size: Int?
+    var size: Int?
     
     @State private var shoeModel: Entity?
     @State private var angle: Double = 0.0
@@ -25,12 +25,12 @@ struct DetailShoeRealityView: View {
                 Button {
                     ViewModel.shared.selectedModel3DName = model3DName
                     open(id: "volumetricShoe")
-                    
                 } label: {
                     RealityView { content in
-                        shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? 40) - 40.0) * 0.005))
+                        shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? GlobalData.defaultSize) - Float(GlobalData.defaultSize)) * 0.005))
                         content.add(shoeModel)
                     }
+                    .id("\(model3DName)\(size ?? GlobalData.defaultSize)")
                     .rotation3DEffect(Angle(degrees: angle), axis: .y)
                 }
                 .buttonStyle(.plain)
@@ -38,6 +38,7 @@ struct DetailShoeRealityView: View {
                 CustomProgressView("Load shoe")
             }
         }
+        .frame(minWidth: 300, idealWidth: 350, maxWidth: 400, minHeight: 300, idealHeight: 350, maxHeight: 400)
         .task {
             shoeModel = try? await Entity(named: model3DName, in: realityShoeGalleryBundle)
             rotation()
@@ -61,5 +62,5 @@ struct DetailShoeRealityView: View {
 }
 
 #Preview {
-    DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName, size: .none)
+    DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
 }
