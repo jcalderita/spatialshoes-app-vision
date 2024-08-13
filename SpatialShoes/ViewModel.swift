@@ -6,15 +6,23 @@
 //
 
 import Foundation
+import SwiftData
 
 @Observable
 final class ViewModel {
     static let shared = ViewModel()
     let interactor: DataInteractor
     
+    var showProgress = false
+    var favorites = false
+    var selectedModel3DName = ""
+    
     init(interactor: DataInteractor = DefaultDataInteractor()) {
         self.interactor = interactor
     }
     
-    var selectedModel3DName: String = ""
+    func toggleFavorites() {
+        favorites.toggle()
+        NotificationCenter.default.post(name: .resetShoeModel, object: nil)
+    }
 }

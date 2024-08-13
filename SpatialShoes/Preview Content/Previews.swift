@@ -110,6 +110,15 @@ extension DetailSizesView {
     }
 }
 
-struct PreviewDataInteractor: DataInteractor {
-    static var resourceName: String { "shoesPreview.json" }
+
+
+extension HeartToolbarItemView {
+    static var preview: some View {
+        Text("Toolbar")
+            .toolbar {
+                HeartToolbarItemView(favorites: false) {
+                    print("ToolbarContent")
+                }
+            }
+    }
 }

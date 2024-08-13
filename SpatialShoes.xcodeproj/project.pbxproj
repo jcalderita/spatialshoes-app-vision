@@ -15,6 +15,8 @@
 		E39B5DEF2C690B06007A4E72 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B5DEE2C690B02007A4E72 /* ViewModel.swift */; };
 		E3A69B822C69138D00EE965B /* ShoeVolumetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A69B812C69138D00EE965B /* ShoeVolumetricView.swift */; };
 		E3A7591F2C6B428F0050A270 /* shoesPreview.json in Resources */ = {isa = PBXBuildFile; fileRef = E3A7591E2C6B428F0050A270 /* shoesPreview.json */; };
+		E3A759232C6B7A710050A270 /* HeartToolbarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A759222C6B7A710050A270 /* HeartToolbarItemView.swift */; };
+		E3A759252C6B7CCA0050A270 /* PreviewDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A759242C6B7CBB0050A270 /* PreviewDataInteractor.swift */; };
 		E3AFB9EE2C67730000789863 /* ShoesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9ED2C67730000789863 /* ShoesGridView.swift */; };
 		E3AFB9F02C67762200789863 /* ShoesListMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9EF2C67762200789863 /* ShoesListMenuView.swift */; };
 		E3AFB9F22C67792900789863 /* ShoeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFB9F12C67792900789863 /* ShoeDetail.swift */; };
@@ -48,6 +50,8 @@
 		E39B5DEE2C690B02007A4E72 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E3A69B812C69138D00EE965B /* ShoeVolumetricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeVolumetricView.swift; sourceTree = "<group>"; };
 		E3A7591E2C6B428F0050A270 /* shoesPreview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shoesPreview.json; sourceTree = "<group>"; };
+		E3A759222C6B7A710050A270 /* HeartToolbarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartToolbarItemView.swift; sourceTree = "<group>"; };
+		E3A759242C6B7CBB0050A270 /* PreviewDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataInteractor.swift; sourceTree = "<group>"; };
 		E3AFB9ED2C67730000789863 /* ShoesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesGridView.swift; sourceTree = "<group>"; };
 		E3AFB9EF2C67762200789863 /* ShoesListMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesListMenuView.swift; sourceTree = "<group>"; };
 		E3AFB9F12C67792900789863 /* ShoeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetail.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				E398A1552C64C8F7008B810C /* ShoeCardView.swift */,
 				E398A15F2C64EC4D008B810C /* CustomProgressView.swift */,
 				E3AFB9F12C67792900789863 /* ShoeDetail.swift */,
+				E3A759222C6B7A710050A270 /* HeartToolbarItemView.swift */,
 			);
 			name = SubViews;
 			sourceTree = "<group>";
@@ -155,8 +160,9 @@
 		E3F1962E2C63B904004B6D18 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E3A7591E2C6B428F0050A270 /* shoesPreview.json */,
 				E3F1964E2C63D2B5004B6D18 /* Previews.swift */,
+				E3A759242C6B7CBB0050A270 /* PreviewDataInteractor.swift */,
+				E3A7591E2C6B428F0050A270 /* shoesPreview.json */,
 				E3F1962D2C63B904004B6D18 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3AFB9F22C67792900789863 /* ShoeDetail.swift in Sources */,
+				E3A759252C6B7CCA0050A270 /* PreviewDataInteractor.swift in Sources */,
 				E3AFB9F02C67762200789863 /* ShoesListMenuView.swift in Sources */,
 				E3A69B822C69138D00EE965B /* ShoeVolumetricView.swift in Sources */,
 				E3AFB9F92C67ABD500789863 /* DetailPriceView.swift in Sources */,
@@ -357,6 +364,7 @@
 				E3F196352C63B904004B6D18 /* SpatialShoesApp.swift in Sources */,
 				E3EB0A8A2C689E9900D8EFAB /* DetailSizesView.swift in Sources */,
 				E39B5DEF2C690B06007A4E72 /* ViewModel.swift in Sources */,
+				E3A759232C6B7A710050A270 /* HeartToolbarItemView.swift in Sources */,
 				E3F196412C63BCAE004B6D18 /* JSONInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
