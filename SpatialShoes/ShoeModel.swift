@@ -28,7 +28,6 @@ final class ShoeModel {
     var warranty: Int
     var certifications: [ShoeCertificationModel]
     var isFavorite: Bool = false
-    var lastColor: String?
     var lastSize: Int?
     
     init(id: Int, name: String, brand: String, size: [ShoeSizeModel], price: Double, specification: String, model3DName: String, type: ShoeType, materials: [ShoeMaterialModel], origin: String, gender: String, weight: Double, warranty: Int, certifications: [ShoeCertificationModel], colors: [ShoeColorModel]) {

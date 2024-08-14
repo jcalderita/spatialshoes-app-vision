@@ -7,4 +7,5 @@
 
 struct GlobalData {
     static let defaultSize = 40
+    static let immersiveId = "shoeSpace"
 }

@@ -8,19 +8,30 @@
 import SwiftUI
 
 struct HeartToolbarItemContent: ToolbarContent {
+    @Environment(\.openImmersiveSpace) private var openSpace
+    
     let favorites: Bool
     let heartFunction: () -> Void
     
     var body: some ToolbarContent {
         ToolbarItem(placement: .bottomOrnament) {
-            Button {
-                heartFunction()
-            } label: {
-                Image(systemName: "heart")
-                    .font(.extraLargeTitle)
-                    .symbolVariant(favorites ? .fill : .none)
-                    .foregroundStyle(favorites ? .red : .primary)
+            HStack {
+                Button {
+                    heartFunction()
+                } label: {
+                    Image(systemName: "heart")
+                        .symbolVariant(favorites ? .fill : .none)
+                        .foregroundStyle(favorites ? .red : .primary)
+                }
+                Button {
+                    Task {
+                        await openSpace(id: GlobalData.immersiveId)
+                    }
+                } label: {
+                    Image(systemName: "visionpro")
+                }
             }
+            .font(.extraLargeTitle)
         }
     }
 }

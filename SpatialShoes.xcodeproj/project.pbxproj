@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3413D192C6683D300204926 /* ShoeColorModel.swift */; };
+		E34982F42C6CBA000050FD32 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34982F32C6CBA000050FD32 /* SpaceView.swift */; };
 		E36659C12C664F76005D13FE /* RealityShoeGallery in Frameworks */ = {isa = PBXBuildFile; productRef = E36659C02C664F76005D13FE /* RealityShoeGallery */; };
 		E36659C32C665A4B005D13FE /* DetailShoeRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36659C22C665A4B005D13FE /* DetailShoeRealityView.swift */; };
 		E398A1562C64C8F7008B810C /* ShoeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A1552C64C8F7008B810C /* ShoeCardView.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		E3413D192C6683D300204926 /* ShoeColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeColorModel.swift; sourceTree = "<group>"; };
+		E34982F32C6CBA000050FD32 /* SpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		E36659C22C665A4B005D13FE /* DetailShoeRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShoeRealityView.swift; sourceTree = "<group>"; };
 		E398A1552C64C8F7008B810C /* ShoeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCardView.swift; sourceTree = "<group>"; };
 		E398A15F2C64EC4D008B810C /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E34982F22C6CB7DB0050FD32 /* ImmersiveViews */ = {
+			isa = PBXGroup;
+			children = (
+				E34982F32C6CBA000050FD32 /* SpaceView.swift */,
+			);
+			name = ImmersiveViews;
+			sourceTree = "<group>";
+		};
 		E398A1542C64C8D4008B810C /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +252,7 @@
 				E3A69B802C69135E00EE965B /* VolumetricViews */,
 				E3A759262C6B826A0050A270 /* Contents */,
 				E398A15C2C64E4BB008B810C /* Modifiers */,
+				E34982F22C6CB7DB0050FD32 /* ImmersiveViews */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -401,6 +412,7 @@
 				E3F196512C63D8BC004B6D18 /* ShoeCollectionView.swift in Sources */,
 				E3E4E24A2C6BBBAC0013BFCA /* ShoeCertificationModel.swift in Sources */,
 				E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */,
+				E34982F42C6CBA000050FD32 /* SpaceView.swift in Sources */,
 				E3D2B1FB2C6A46CF002B445D /* ShoesSplitView.swift in Sources */,
 				E3413D1A2C6683D900204926 /* ShoeColorModel.swift in Sources */,
 				E398A1602C64EC4D008B810C /* CustomProgressView.swift in Sources */,

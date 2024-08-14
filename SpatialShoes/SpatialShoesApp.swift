@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct SpatialShoesApp: App {
     @State private var vm = ViewModel.shared
+    @State private var immersionStyle: ImmersionStyle = .full
     
     var body: some Scene {
         WindowGroup {
@@ -33,5 +34,10 @@ struct SpatialShoesApp: App {
         }
         .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
         .windowResizability(.contentSize)
+        
+        ImmersiveSpace(id: GlobalData.immersiveId) {
+            SpaceView()
+        }
+        .immersionStyle(selection: $immersionStyle, in: .progressive, .full)
     }
 }
