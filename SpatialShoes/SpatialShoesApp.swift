@@ -14,19 +14,31 @@ struct SpatialShoesApp: App {
     @State private var immersionStyle: ImmersionStyle = .full
     
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: GlobalData.windowId) {
             ShoeCollectionView()
+                .animation(.default, value: vm.isImmersiveSpace)
                 .environment(vm)
-                .modelContainer(for: [ShoeModel.self, ShoeColorModel.self], inMemory: false)
+                .modelContainer(for: [ShoeModel.self])
         }
         .windowResizability(.contentSize)
         
-        WindowGroup(id: "volumetricShoe") {
+        WindowGroup(id: GlobalData.controlId) {
+            SpaceControlView()
+                .environment(vm)
+                .animation(.default, value: vm.isImmersiveSpace)
+        }
+        .windowResizability(.contentSize)
+        .defaultWindowPlacement { content, context in
+            WindowPlacement(.utilityPanel)
+        }
+        
+        
+        WindowGroup(id: GlobalData.volumetricId) {
             ShoeVolumetricView(model3DName: vm.selectedModel3DName)
         }
         .windowStyle(.volumetric)
         .defaultWindowPlacement { content, context in
-            if context.windows.last?.id == "volumetricShoe" {
+            if context.windows.last?.id == GlobalData.volumetricId {
                 WindowPlacement(.trailing(context.windows.last!))
             } else {
                 WindowPlacement(.utilityPanel)
@@ -37,6 +49,9 @@ struct SpatialShoesApp: App {
         
         ImmersiveSpace(id: GlobalData.immersiveId) {
             SpaceView()
+            ShoesView()
+                .modelContainer(for: [ShoeModel.self])
+                .environment(vm)
         }
         .immersionStyle(selection: $immersionStyle, in: .progressive, .full)
     }

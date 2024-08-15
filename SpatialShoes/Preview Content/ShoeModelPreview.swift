@@ -50,7 +50,7 @@ extension ShoeModel {
     @MainActor
     static var preview: ModelContainer {
         let container = try! ModelContainer(
-            for: ShoeModel.self, ShoeColorModel.self,
+            for: ShoeModel.self,
             configurations: ModelConfiguration(isStoredInMemoryOnly: true)
         )
         container.mainContext.insert(self.firstTest)

@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftData
+import RealityKit
+import SwiftUI
 
 @Observable
 final class ViewModel {
@@ -17,6 +19,9 @@ final class ViewModel {
     var favorites = false
     var selectedModel3DName = ""
     
+    var isImmersiveSpace = false
+    var rotationAngle: Float = 0.0
+    
     init(interactor: DataInteractor = DefaultDataInteractor()) {
         self.interactor = interactor
     }
@@ -24,5 +29,24 @@ final class ViewModel {
     func toggleFavorites() {
         favorites.toggle()
         NotificationCenter.default.post(name: .resetShoeModel, object: nil)
+    }
+    
+    func shoesCircle(shoes: [ShoeModel], in scene: Entity, content: RealityViewContent) {
+        let count = shoes.count
+        let radius: Float = 25.0
+
+        for (index, shoe) in shoes.enumerated() {
+            let angle = (Float(index) / Float(count)) * 2 * .pi
+            let x = radius * cos(angle)
+            let z = radius * sin(angle)
+
+            if let shoeEntity = scene.findEntity(named: shoe.model3DName) {
+                shoeEntity.position = [x, 0, z]
+                shoeEntity.look(at: .zero, from: shoeEntity.position, relativeTo: nil)
+                let rotation = simd_quatf(angle: .pi, axis: [0, 1, 0])
+                shoeEntity.orientation *= rotation
+                scene.addChild(shoeEntity)
+            }
+        }
     }
 }

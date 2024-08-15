@@ -8,4 +8,8 @@
 struct GlobalData {
     static let defaultSize = 40
     static let immersiveId = "shoeSpace"
+    static let windowId = "shoeWindow"
+    static let volumetricId = "shoeVolumetric"
+    static let controlId = "controlWindow"
+    
 }

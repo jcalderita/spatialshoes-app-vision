@@ -11,6 +11,7 @@ import SwiftData
 struct ShoeCollectionView: View {
     @Environment(ViewModel.self) private var vm
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismissWindow) private var close
     
     var body: some View {
         ShoesSplitView(favorites: vm.favorites, showProgress: vm.showProgress)
@@ -21,6 +22,7 @@ struct ShoeCollectionView: View {
         }
         .task {
             await importShoes()
+            close(id: GlobalData.controlId)
         }
     }
     
@@ -38,6 +40,6 @@ struct ShoeCollectionView: View {
 
 #Preview("Shoe Collection") {
     ShoeCollectionView()
-        .environment(ViewModel(interactor: PreviewDataInteractor()))
-        .modelContainer(for: [ShoeModel.self, ShoeColorModel.self], inMemory: true)
+        .environment(ViewModel.preview)
+        .modelContainer(for: [ShoeModel.self], inMemory: true)
 }
