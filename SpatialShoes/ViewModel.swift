@@ -21,6 +21,8 @@ final class ViewModel {
     
     var isImmersiveSpace = false
     var rotationAngle: Float = 0.0
+
+    var selectedShoe: ShoeModel?
     
     init(interactor: DataInteractor = DefaultDataInteractor()) {
         self.interactor = interactor
@@ -48,5 +50,28 @@ final class ViewModel {
                 scene.addChild(shoeEntity)
             }
         }
+    }
+
+    func selectedShoe(shoes: [ShoeModel], direction: DataMovement = .next) {
+        rotationAngle = GlobalData.rotationAngle * (direction == .next ? 1 : -1)
+        
+        guard !shoes.isEmpty else { return }
+        
+        if let shoe = selectedShoe, let currentIndex = shoes.firstIndex(of: shoe) {
+            let count = shoes.count
+            let newIndex = direction == .next ? (currentIndex + 1) % count : (currentIndex - 1 + count) % count
+            selectedShoe = shoes[newIndex]
+        } else {
+            selectedShoe = shoes.first
+        }
+    }
+    
+    func positionForSelectedShoe(in scene: Entity) -> SIMD3<Float>? {
+        guard let selectedShoe = selectedShoe,
+              let shoeEntity =  scene.findEntity(named: selectedShoe.model3DName) else {
+            return nil
+        }
+
+        return shoeEntity.position(relativeTo: nil)
     }
 }

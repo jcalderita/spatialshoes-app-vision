@@ -24,9 +24,12 @@ struct SpatialShoesApp: App {
         
         WindowGroup(id: GlobalData.controlId) {
             SpaceControlView()
+                .frame(minWidth: 500, minHeight: 500)
                 .environment(vm)
+                .modelContainer(for: [ShoeModel.self])
                 .animation(.default, value: vm.isImmersiveSpace)
         }
+        .defaultSize(width: 1000, height: 500)
         .windowResizability(.contentSize)
         .defaultWindowPlacement { content, context in
             WindowPlacement(.utilityPanel)

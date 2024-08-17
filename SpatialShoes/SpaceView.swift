@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import SwiftData
 
 struct SpaceView: View {
     var body: some View {

@@ -14,6 +14,7 @@
 		E34983422C6D03A50050FD32 /* ShoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34983412C6D03A50050FD32 /* ShoesView.swift */; };
 		E36659C12C664F76005D13FE /* RealityShoeGallery in Frameworks */ = {isa = PBXBuildFile; productRef = E36659C02C664F76005D13FE /* RealityShoeGallery */; };
 		E36659C32C665A4B005D13FE /* DetailShoeRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36659C22C665A4B005D13FE /* DetailShoeRealityView.swift */; };
+		E37678142C6F5649002E94E8 /* TypeNavigationEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37678132C6F5635002E94E8 /* TypeNavigationEnums.swift */; };
 		E398A1562C64C8F7008B810C /* ShoeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A1552C64C8F7008B810C /* ShoeCardView.swift */; };
 		E398A1602C64EC4D008B810C /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E398A15F2C64EC4D008B810C /* CustomProgressView.swift */; };
 		E39B5DEF2C690B06007A4E72 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B5DEE2C690B02007A4E72 /* ViewModel.swift */; };
@@ -59,6 +60,7 @@
 		E34982F32C6CBA000050FD32 /* SpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		E34983412C6D03A50050FD32 /* ShoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesView.swift; sourceTree = "<group>"; };
 		E36659C22C665A4B005D13FE /* DetailShoeRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShoeRealityView.swift; sourceTree = "<group>"; };
+		E37678132C6F5635002E94E8 /* TypeNavigationEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeNavigationEnums.swift; sourceTree = "<group>"; };
 		E398A1552C64C8F7008B810C /* ShoeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCardView.swift; sourceTree = "<group>"; };
 		E398A15F2C64EC4D008B810C /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		E39B5DEE2C690B02007A4E72 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		E3F196522C63E70C004B6D18 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				E37678132C6F5635002E94E8 /* TypeNavigationEnums.swift */,
 				E3F196532C63E717004B6D18 /* ModelEnums.swift */,
 			);
 			name = Enums;
@@ -422,6 +425,7 @@
 				E3A7592B2C6B870A0050A270 /* ShoeModelPreview.swift in Sources */,
 				E3F196512C63D8BC004B6D18 /* ShoeCollectionView.swift in Sources */,
 				E3E4E24A2C6BBBAC0013BFCA /* ShoeCertificationModel.swift in Sources */,
+				E37678142C6F5649002E94E8 /* TypeNavigationEnums.swift in Sources */,
 				E3EB0A882C68968600D8EFAB /* DetailColorsView.swift in Sources */,
 				E34982F42C6CBA000050FD32 /* SpaceView.swift in Sources */,
 				E3D2B1FB2C6A46CF002B445D /* ShoesSplitView.swift in Sources */,
