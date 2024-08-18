@@ -43,11 +43,19 @@ final class ViewModel {
             let z = radius * sin(angle)
 
             if let shoeEntity = scene.findEntity(named: shoe.model3DName) {
+                let rotation = simd_quatf(angle: .pi, axis: [0, 1, 0])
+                
                 shoeEntity.position = [x, 0, z]
                 shoeEntity.look(at: .zero, from: shoeEntity.position, relativeTo: nil)
-                let rotation = simd_quatf(angle: .pi, axis: [0, 1, 0])
                 shoeEntity.orientation *= rotation
                 scene.addChild(shoeEntity)
+                
+                let priceEntity = createPriceLabelEntity(price: shoe.price)
+                priceEntity.name = ("\(shoe.model3DName)price")
+                priceEntity.position = [x, shoeEntity.position.y + 2.0, z]
+                priceEntity.look(at: .zero, from: priceEntity.position, relativeTo: nil)
+                priceEntity.orientation *= rotation
+                scene.addChild(priceEntity)
             }
         }
     }
@@ -66,12 +74,51 @@ final class ViewModel {
         }
     }
     
-    func positionForSelectedShoe(in scene: Entity) -> SIMD3<Float>? {
-        guard let selectedShoe = selectedShoe,
-              let shoeEntity =  scene.findEntity(named: selectedShoe.model3DName) else {
-            return nil
-        }
+    private func createPriceLabelEntity(price: Double) -> Entity {
+        let backgroundWidth: Float = 5.0
+        let backgroundHeight: Float = 1.5
 
-        return shoeEntity.position(relativeTo: nil)
+        let textMesh = MeshResource.generateText(
+            price.formatted(.currency(code: "USD")),
+            extrusionDepth: 0.0,
+            font: .boldSystemFont(ofSize: 0.7),
+            containerFrame: .zero,
+            alignment: .center,
+            lineBreakMode: .byWordWrapping
+        )
+        let material = SimpleMaterial(color: .black, isMetallic: false)
+        let textEntity = ModelEntity(mesh: textMesh, materials: [material])
+        
+        let backgroundEntity = createRoundedRectangleEntity(width: backgroundWidth, height: backgroundHeight, cornerRadius: 0.4)
+        let backgroundMaterial = SimpleMaterial(color: .white, isMetallic: false)
+        backgroundEntity.model?.materials = [backgroundMaterial]
+        
+        let textBounds = textEntity.visualBounds(relativeTo: backgroundEntity)
+        let xOffset = -(textBounds.extents.x / 2.0)
+        let yOffset = -(textBounds.extents.y / 2.0)
+        
+        textEntity.position = [xOffset, yOffset, 0.05]
+        backgroundEntity.addChild(textEntity)
+        
+        return backgroundEntity
+    }
+
+    private func createRoundedRectangleEntity(width: Float, height: Float, cornerRadius: Float) -> ModelEntity {
+        let capsule = MeshResource.generatePlane(width: width, height: height, cornerRadius: cornerRadius)
+        let capsuleEntity = ModelEntity(mesh: capsule)
+        
+        return capsuleEntity
+    }
+    
+    func updatePriceVisibility(for shoes: [ShoeModel], in scene: Entity) {
+        for shoe in shoes {
+            if let priceEntity = scene.findEntity(named: "\(shoe.model3DName)price") {
+                if let selectedShoe {
+                    priceEntity.isEnabled = priceEntity.name.contains(selectedShoe.model3DName)
+                } else {
+                    priceEntity.isEnabled = false
+                }
+            }
+        }
     }
 }
