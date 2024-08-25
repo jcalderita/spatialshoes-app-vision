@@ -22,8 +22,8 @@ struct ShoesView: View {
     var body: some View {
         Group {
             if scene != .none {
-                RealityView { setupScene($0) }
-                update: { updateScene($0) }
+                RealityView { vm.setupScene(scene, shoes: shoes, content: $0) }
+                update: { vm.updateScene(scene, shoes: shoes, content: $0) }
             } else {
                 CustomProgressView("Load Scene")
             }
@@ -35,20 +35,6 @@ struct ShoesView: View {
         .onDisappear {
             resetViewModel()
         }
-    }
-    
-    private func setupScene(_ content: RealityViewContent) {
-        guard let scene else { return }
-        
-        content.add(scene)
-        vm.shoesCircle(shoes: shoes, in: scene, content: content)
-    }
-    
-    private func updateScene(_ content: RealityViewContent) {
-        guard let scene else { return }
-        
-        scene.orientation *= simd_quatf(angle: vm.rotationAngle, axis: [0, 1, 0])
-        vm.updatePriceVisibility(for: shoes, in: scene)
     }
     
     private func loadScene() async {

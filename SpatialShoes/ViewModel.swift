@@ -33,7 +33,35 @@ final class ViewModel {
         NotificationCenter.default.post(name: .resetShoeModel, object: nil)
     }
     
-    func shoesCircle(shoes: [ShoeModel], in scene: Entity, content: RealityViewContent) {
+    func setupScene(_ scene: Entity?, shoes: [ShoeModel], content: RealityViewContent) {
+        guard let scene else { return }
+        
+        content.add(scene)
+        shoesCircle(shoes: shoes, in: scene, content: content)
+    }
+    
+    func updateScene(_ scene: Entity?, shoes: [ShoeModel], content: RealityViewContent) {
+        guard let scene else { return }
+        
+        scene.orientation *= simd_quatf(angle: rotationAngle, axis: [0, 1, 0])
+        updatePriceVisibility(for: shoes, in: scene)
+    }
+    
+    func selectedShoe(shoes: [ShoeModel], direction: DataMovement = .next) {
+        rotationAngle = GlobalData.rotationAngle * (direction == .next ? 1 : -1)
+        
+        guard !shoes.isEmpty else { return }
+        
+        if let shoe = selectedShoe, let currentIndex = shoes.firstIndex(of: shoe) {
+            let count = shoes.count
+            let newIndex = direction == .next ? (currentIndex + 1) % count : (currentIndex - 1 + count) % count
+            selectedShoe = shoes[newIndex]
+        } else {
+            selectedShoe = shoes.first
+        }
+    }
+    
+    private func shoesCircle(shoes: [ShoeModel], in scene: Entity, content: RealityViewContent) {
         let count = shoes.count
         let radius: Float = 25.0
 
@@ -59,33 +87,12 @@ final class ViewModel {
             }
         }
     }
-
-    func selectedShoe(shoes: [ShoeModel], direction: DataMovement = .next) {
-        rotationAngle = GlobalData.rotationAngle * (direction == .next ? 1 : -1)
-        
-        guard !shoes.isEmpty else { return }
-        
-        if let shoe = selectedShoe, let currentIndex = shoes.firstIndex(of: shoe) {
-            let count = shoes.count
-            let newIndex = direction == .next ? (currentIndex + 1) % count : (currentIndex - 1 + count) % count
-            selectedShoe = shoes[newIndex]
-        } else {
-            selectedShoe = shoes.first
-        }
-    }
     
     private func createPriceLabelEntity(price: Double) -> Entity {
         let backgroundWidth: Float = 5.0
         let backgroundHeight: Float = 1.5
 
-        let textMesh = MeshResource.generateText(
-            price.formatted(.currency(code: "USD")),
-            extrusionDepth: 0.0,
-            font: .boldSystemFont(ofSize: 0.7),
-            containerFrame: .zero,
-            alignment: .center,
-            lineBreakMode: .byWordWrapping
-        )
+        let textMesh = generatePriceText(price)
         let material = SimpleMaterial(color: .black, isMetallic: false)
         let textEntity = ModelEntity(mesh: textMesh, materials: [material])
         
@@ -102,6 +109,17 @@ final class ViewModel {
         
         return backgroundEntity
     }
+    
+    private func generatePriceText(_ price: Double) -> MeshResource {
+        MeshResource.generateText(
+            price.formatted(.currency(code: "USD")),
+            extrusionDepth: 0.0,
+            font: .boldSystemFont(ofSize: 0.7),
+            containerFrame: .zero,
+            alignment: .center,
+            lineBreakMode: .byWordWrapping
+        )
+    }
 
     private func createRoundedRectangleEntity(width: Float, height: Float, cornerRadius: Float) -> ModelEntity {
         let capsule = MeshResource.generatePlane(width: width, height: height, cornerRadius: cornerRadius)
@@ -110,7 +128,7 @@ final class ViewModel {
         return capsuleEntity
     }
     
-    func updatePriceVisibility(for shoes: [ShoeModel], in scene: Entity) {
+    private func updatePriceVisibility(for shoes: [ShoeModel], in scene: Entity) {
         for shoe in shoes {
             if let priceEntity = scene.findEntity(named: "\(shoe.model3DName)price") {
                 if let selectedShoe {
