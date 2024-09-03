@@ -53,13 +53,13 @@ Este proyecto incluye un submódulo, que es el proyecto de **Reality Composer Pr
 ## 📷 Capturas de Pantalla
 
 ### Exploración en 3D
-![Exploración en 3D](assets/exploracion3d.png)
+![Exploración en 3D](Assets/exploracion3d.png)
 
 ### Espacio inmersivo
-![Prueba Virtual](assets/espacioinmersivo.png)
+![Prueba Virtual](Assets/espacioinmersivo.png)
 
 ### Favoritos
-![Proceso de Compra](assets/favoritos.png)
+![Proceso de Compra](Assets/favoritos.png)
 
 ## 👥 Contribuciones
 
