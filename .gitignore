@@ -11,7 +11,7 @@
 
 # Swift Package Manager
 /.build
-/Packages
+# /Packages
 /.swiftpm/xcode
 /.swiftpm/build
 /swiftpm/swiftpm.lock

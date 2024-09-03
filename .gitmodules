@@ -1,0 +1,3 @@
+[submodule "Packages/RealityShoeGallery"]
+	path = Packages/RealityShoeGallery
+	url = git@github.com:jcalderita/spatialshoes-reality-vision.git
