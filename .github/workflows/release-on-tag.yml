@@ -1,0 +1,26 @@
+name: Create Release on Tag
+
+on:
+  push:
+    tags:
+      - '*.*.*'  # Esto indica que el workflow se ejecuta cuando se empuja un tag que sigue el patrón vX.X.X
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Chequea el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Crea el release
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}           # El nombre del tag
+          release_name: Release ${{ github.ref }} # El nombre del release
+          body: "Release for version ${{ github.ref }}" # Descripción del release
+          draft: false                          # Indica que no es un draft
+          prerelease: false                     # Indica que no es una pre-release

@@ -1,86 +1,88 @@
+# [![GitHub release (latest by date)](https://img.shields.io/github/v/release/jcalderita/spatialshoes-app-vision?color=brightgreen)](https://github.com/jcalderita/spatialshoes-app-vision/releases) [🇪🇸](README_es.md)
+
 # 👞 Spatial Shoes
 
-## 📄 Descripción
+## 📄 Description
 
-**Spatial Shoes** es una aplicación inmersiva diseñada específicamente para Apple Vision Pro, que ofrece a los usuarios una experiencia única de exploración y selección de zapatos en un entorno virtual. Gracias a la integración de avanzada tecnología de realidad aumentada y las potentes capacidades de Apple Vision Pro, los usuarios pueden visualizar cómo lucirán los zapatos desde diferentes ángulos y en distintas tallas, todo en tiempo real. Además, la aplicación permite explorar detallados modelos en 3D y marcar como favoritos los zapatos que más les gusten para un acceso rápido y fácil.
+**Spatial Shoes** is an immersive application specifically designed for Apple Vision Pro, offering users a unique experience in exploring and selecting shoes in a virtual environment. Thanks to the integration of advanced augmented reality technology and the powerful capabilities of Apple Vision Pro, users can visualize how shoes will look from different angles and in various sizes, all in real-time. Additionally, the app allows users to explore detailed 3D models and mark their favorite shoes for quick and easy access.
 
-## ✨ Características
+## ✨ Features
 
-- **Exploración en 3D**: Navega por una colección completa de zapatos en un entorno tridimensional.
-- **Entorno inmersivo**: Explora nuestra colección de zapatos en un entorno inmersivo de centro comercial.
-- **Experiencia personalizada**: Busca zapatos y obtén información detallada.
-- **Guarda tus favoritos**: Añade los zapatos que más te gusten a tu lista de favoritos.
-- **Interacción Natural**: Controla la aplicación con gestos intuitivos.
+- **3D Exploration**: Browse through a complete collection of shoes in a three-dimensional environment.
+- **Immersive Environment**: Explore our shoe collection in an immersive shopping mall environment.
+- **Personalized Experience**: Search for shoes and get detailed information.
+- **Save Your Favorites**: Add your favorite shoes to your favorites list.
+- **Natural Interaction**: Control the app with intuitive gestures.
 
-## 🛠️ Requisitos del Sistema
+## 🛠️ System Requirements
 
-- **Apple Vision Pro** con VisionOS 2.0 o superior.
-- **Xcode 16** o superior para desarrollo.
-- **Swift 5.10** o superior.
-- **SDK de VisionOS**.
+- **Apple Vision Pro** with VisionOS 2.0 or higher.
+- **Xcode 16** or higher for development.
+- **Swift 5.10** or higher.
+- **VisionOS SDK**.
 
-## 🚨 Importante: Este Proyecto Contiene Submódulos
+## 🚨 Important: This Project Contains Submodules
 
-Este proyecto incluye un submódulo, que es el proyecto de **Reality Composer Pro**. Asegúrate de clonar el repositorio con la opción `--recurse-submodules` para que todos los archivos del submódulo se descarguen correctamente.
+This project includes a submodule, which is the **Reality Composer Pro** project. Be sure to clone the repository using the `--recurse-submodules` option to properly download all submodule files.
 
-## 📦 Instalación
+## 📦 Installation
 
-1. Clona el repositorio incluyendo los submódulos en tu máquina local:
+1. Clone the repository including the submodules to your local machine:
 
-   **Opción 1: Clonar con HTTPS**
+   **Option 1: Clone with HTTPS**
     ```bash
     git clone --recurse-submodules https://github.com/jcalderita/spatialshoes-app-vision.git
     ```
 
-   **Opción 2: Clonar con SSH**
+   **Option 2: Clone with SSH**
     ```bash
     git clone --recurse-submodules git@github.com:jcalderita/spatialshoes-app-vision.git
     ```
-2. Abre el proyecto en Xcode:
+2. Open the project in Xcode:
     ```bash
     cd spatialshoes-app-vision
     open SpatialShoes.xcodeproj
     ```
-3. Configura tu entorno de desarrollo seleccionando el dispositivo de Apple Vision Pro como destino.
-4. Compila y ejecuta la aplicación en el simulador de Vision Pro o en un dispositivo real.
+3. Set up your development environment by selecting the Apple Vision Pro device as the target.
+4. Build and run the app on the Vision Pro simulator or on a real device.
 
-## 🚀 Uso
+## 🚀 Usage
 
-- **Navegación**: Utiliza gestos de deslizamiento para moverte por la tienda y realizar busquedas.
-- **Prueba Virtual**: Usa el dispositivo Vision Pro para ver cómo lucen los zapatos en un entorno virtual.
-- **Favoritos**: Selecciona los zapatos que desees y agrégalos a tu lista de favoritos.
+- **Navigation**: Use swipe gestures to navigate through the store and perform searches.
+- **Virtual Try-On**: Use the Vision Pro device to see how the shoes look in a virtual environment.
+- **Favorites**: Select your desired shoes and add them to your favorites list.
 
-## 📷 Capturas de Pantalla
+## 📷 Screenshots
 
-### Exploración en 3D
-![Exploración en 3D](Assets/exploracion3d.png)
+### 3D Exploration
+![3D Exploration](Assets/exploracion3d.png)
 
-### Espacio inmersivo
-![Prueba Virtual](Assets/espacioinmersivo.png)
+### Immersive Space
+![Virtual Try-On](Assets/espacioinmersivo.png)
 
-### Favoritos
-![Proceso de Compra](Assets/favoritos.png)
+### Favorites
+![Favorites](Assets/favoritos.png)
 
-## 👥 Contribuciones
+## 👥 Contributions
 
-Las contribuciones son bienvenidas. Si deseas colaborar en este proyecto, por favor sigue estos pasos:
+Contributions are welcome. If you want to contribute to this project, please follow these steps:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza tus cambios y commitea (`git commit -m 'Agrega nueva funcionalidad'`).
-4. Sube tus cambios a tu rama (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request y describe las mejoras.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push your changes to your branch (`git push origin feature/new-feature`).
+5. Open a Pull Request and describe the improvements.
 
-## 📜 Licencia
+## 📜 License
 
-Este proyecto está licenciado bajo la Licencia Apache 2.0. Para más detalles, revisa el archivo [LICENSE](./LICENSE).
+This project is licensed under the Apache 2.0 License. For more details, check the [LICENSE](./LICENSE) file.
 
-## 📧 Contacto
+## 📧 Contact
 
-Si tienes preguntas, sugerencias o comentarios, no dudes en contactar con nosotros a través de ...
+If you have any questions, suggestions, or comments, feel free to contact us via ...
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Jcalderita-blue?logo=linkedin&logoColor=white&style=for-the-badge)](https://www.linkedin.com/in/jcalderita)
 
 ---
 
-¡Gracias por usar Spatial Shoes! Esperamos que disfrutes de la experiencia del futuro de las tiendas en un entorno virtual revolucionario.
+Thank you for using Spatial Shoes! We hope you enjoy the experience of the future of shopping in a revolutionary virtual environment.
