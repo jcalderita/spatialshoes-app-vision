@@ -19,9 +19,9 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}            # Se agrega el token para la autenticación
-          tag_name: ${{ github.ref }}                   # El nombre del tag
-          release_name: Release ${{ github.ref }}       # El nombre del release
+          token: ${{ secrets.GITHUB_TOKEN }}    # Se agrega el token para la autenticación
+          tag_name: ${{ github.ref }}           # El nombre del tag
+          release_name: Release ${{ github.ref }} # El nombre del release
           body: "Release for version ${{ github.ref }}" # Descripción del release
-          draft: false                                  # Indica que no es un draft
-          prerelease: false                             # Indica que no es una pre-release
+          draft: false                          # Indica que no es un draft
+          prerelease: false                     # Indica que no es una pre-release
