@@ -62,5 +62,5 @@ struct DetailShoeRealityView: View {
 }
 
 #Preview {
-    DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
+    DetailShoeRealityView.preview
 }

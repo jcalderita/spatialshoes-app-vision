@@ -39,7 +39,6 @@ struct ShoeCollectionView: View {
 }
 
 #Preview("Shoe Collection") {
-    ShoeCollectionView()
-        .environment(ViewModel.preview)
-        .modelContainer(for: [ShoeModel.self], inMemory: true)
+    ShoeCollectionView
+        .preview
 }

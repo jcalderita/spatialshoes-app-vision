@@ -30,7 +30,3 @@ struct DetailSizesView: View {
 #Preview {
     DetailSizesView.preview
 }
-
-#Preview("Second") {
-    DetailSizesView.preview
-}

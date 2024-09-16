@@ -41,7 +41,3 @@ struct ShoeDetail: View {
 #Preview {
     ShoeDetail.preview
 }
-
-#Preview("Two") {
-    ShoeDetail.preview
-}

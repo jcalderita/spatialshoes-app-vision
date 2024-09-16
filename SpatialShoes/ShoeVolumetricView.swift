@@ -44,9 +44,5 @@ struct ShoeVolumetricView: View {
 }
 
 #Preview {
-    ShoeVolumetricView(model3DName: ShoeModel.firstTest.model3DName)
-}
-
-#Preview("Two") {
-    ShoeVolumetricView(model3DName: ShoeModel.firstTest.model3DName)
+    ShoeVolumetricView.preview
 }

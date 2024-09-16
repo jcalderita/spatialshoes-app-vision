@@ -58,16 +58,13 @@ struct ShoesSplitView: View {
 }
 
 #Preview {
-    ShoesSplitView(favorites: false, showProgress: false)
-        .modelContainer(ShoeModel.preview)
+    ShoesSplitView.preview
 }
 
 #Preview("Favorites") {
-    ShoesSplitView(favorites: true, showProgress: false)
-        .modelContainer(ShoeModel.preview)
+    ShoesSplitView.previewWithFavorites
 }
 
 #Preview("ShowProgress") {
-    ShoesSplitView(favorites: false, showProgress: true)
-        .modelContainer(ShoeModel.preview)
+    ShoesSplitView.previewWithShowProgress
 }

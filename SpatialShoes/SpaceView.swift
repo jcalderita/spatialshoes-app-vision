@@ -32,7 +32,3 @@ struct SpaceView: View {
 #Preview {
     SpaceView()
 }
-
-#Preview("Second") {
-    SpaceView()
-}

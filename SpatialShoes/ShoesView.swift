@@ -52,6 +52,5 @@ struct ShoesView: View {
 }
 
 #Preview {
-    ShoesView()
-        .modelContainer(ShoeModel.preview)
+    ShoesView.preview
 }

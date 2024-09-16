@@ -7,6 +7,48 @@
 
 import SwiftUI
 
+extension ShoeCollectionView {
+    static var preview: some View {
+        ShoeCollectionView()
+            .environment(ViewModel.preview)
+            .modelContainer(for: [ShoeModel.self], inMemory: true)
+    }
+}
+
+extension ShoesSplitView {
+    static var preview: some View {
+        ShoesSplitView(favorites: false, showProgress: false)
+            .modelContainer(ShoeModel.preview)
+    }
+    static var previewWithFavorites: some View {
+        ShoesSplitView(favorites: true, showProgress: false)
+            .modelContainer(ShoeModel.preview)
+    }
+    static var previewWithShowProgress: some View {
+        ShoesSplitView(favorites: false, showProgress: true)
+            .modelContainer(ShoeModel.preview)
+    }
+}
+
+extension DetailShoeRealityView {
+    static var preview: some View {
+        DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
+    }
+}
+
+extension ShoeVolumetricView {
+    static var preview: some View {
+        ShoeVolumetricView(model3DName: ShoeModel.firstTest.model3DName)
+    }
+}
+
+extension ShoesView {
+    static var preview: some View {
+        ShoesView()
+            .modelContainer(ShoeModel.preview)
+    }
+}
+
 extension ShoeCardView {
     static var preview: some View {
         ShoeCardView(shoe: ShoeModel.firstTest)

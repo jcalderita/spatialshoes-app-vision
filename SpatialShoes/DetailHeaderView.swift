@@ -38,7 +38,3 @@ struct DetailHeaderView: View {
         .padding(.horizontal)
     }
 }
-
-//#Preview {
-//    DetailHeaderView()
-//}
