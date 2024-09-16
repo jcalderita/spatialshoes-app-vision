@@ -22,7 +22,6 @@ struct DetailPriceView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundStyle(.tertiary)
         }
-        .frame(depth: 50)
     }
 }
 

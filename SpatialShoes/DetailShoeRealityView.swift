@@ -27,7 +27,7 @@ struct DetailShoeRealityView: View {
                     open(id: GlobalData.volumetricId)
                 } label: {
                     RealityView { content in
-                        shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? GlobalData.defaultSize) - Float(GlobalData.defaultSize)) * 0.005))
+                        shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? GlobalData.defaultSize) - Float(GlobalData.defaultSize)) * 0.002))
                         content.add(shoeModel)
                     }
                     .id("\(model3DName)\(size ?? GlobalData.defaultSize)")
