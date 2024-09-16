@@ -33,7 +33,7 @@ struct ShoesView: View {
             await loadScene()
         }
         .onDisappear {
-            resetViewModel()
+            closeScene()
         }
     }
     
@@ -41,13 +41,13 @@ struct ShoesView: View {
         scene = try? await Entity(named: GlobalData.sceneName, in: realityShoeGalleryBundle)
         vm.isImmersiveSpace = true
         openWindow(id: GlobalData.controlId)
-        dismissWindow(id: GlobalData.windowId)
+        dismissWindow(id: GlobalData.volumetricId)
     }
     
-    private func resetViewModel() {
+    private func closeScene() {
         vm.selectedShoe = .none
         vm.isImmersiveSpace = false
-        openWindow(id: GlobalData.windowId)
+        dismissWindow(id: GlobalData.controlId)
     }
 }
 

@@ -16,13 +16,14 @@ struct ShoeCollectionView: View {
     var body: some View {
         ShoesSplitView(favorites: vm.favorites, showProgress: vm.showProgress)
         .toolbar {
-            HeartToolbarItemContent(favorites: vm.favorites) {
-                vm.toggleFavorites()
+            if !vm.isImmersiveSpace {
+                HeartToolbarItemContent(favorites: vm.favorites) {
+                    vm.toggleFavorites()
+                }
             }
         }
         .task {
             await importShoes()
-            close(id: GlobalData.controlId)
         }
     }
     

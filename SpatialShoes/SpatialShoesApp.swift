@@ -19,8 +19,11 @@ struct SpatialShoesApp: App {
                 .animation(.default, value: vm.isImmersiveSpace)
                 .environment(vm)
                 .modelContainer(for: [ShoeModel.self])
+                .opacity(vm.isImmersiveSpace ? 0.0 : 1.0)
         }
         .windowResizability(.contentSize)
+        .persistentSystemOverlays(vm.isImmersiveSpace ? .hidden : .automatic)
+        .windowStyle(.plain)
         
         WindowGroup(id: GlobalData.controlId) {
             SpaceControlView()
@@ -38,6 +41,7 @@ struct SpatialShoesApp: App {
         
         WindowGroup(id: GlobalData.volumetricId) {
             ShoeVolumetricView(model3DName: vm.selectedModel3DName)
+                .opacity(vm.isImmersiveSpace ? 0.0 : 1.0)
         }
         .windowStyle(.volumetric)
         .defaultWindowPlacement { content, context in
