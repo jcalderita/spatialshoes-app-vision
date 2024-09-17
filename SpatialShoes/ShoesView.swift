@@ -45,8 +45,6 @@ struct ShoesView: View {
     }
     
     private func closeScene() {
-        vm.selectedShoe = .none
-        vm.isImmersiveSpace = false
         dismissWindow(id: GlobalData.controlId)
     }
 }

@@ -11,6 +11,7 @@ import SwiftData
 struct SpaceControlView: View {
     @Environment(ViewModel.self) private var vm
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
+    @Environment(\.dismissWindow) private var dismissWindow
     
     @Query private var shoes: [ShoeModel]
     
@@ -20,7 +21,7 @@ struct SpaceControlView: View {
                 DetailHeaderView(title: shoe.name, isFavorite: shoe.isFavorite) {
                     vm.favorites.toggle()
                 } exitFunction: {
-                    dismissSpace()
+                    dismissWindow(id: GlobalData.controlId)
                 }
                 Text(.init(shoe.specification))
                     .font(.headline)
@@ -33,6 +34,9 @@ struct SpaceControlView: View {
             Spacer()
             controlButtons
                 .padding(.bottom)
+        }
+        .onDisappear {
+            dismissSpace()
         }
     }
     
@@ -63,6 +67,8 @@ struct SpaceControlView: View {
     
     private func dismissSpace() {
         Task {
+            vm.selectedShoe = .none
+            vm.isImmersiveSpace = false
             await dismissImmersiveSpace()
         }
     }
