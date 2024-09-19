@@ -12,7 +12,7 @@ import SwiftUI
 
 @Observable
 final class ViewModel {
-    static let shared = ViewModel()
+    @MainActor static let shared = ViewModel()
     let interactor: DataInteractor
     
     var showProgress = false
@@ -24,6 +24,7 @@ final class ViewModel {
 
     var selectedShoe: ShoeModel?
     
+    
     init(interactor: DataInteractor = DefaultDataInteractor()) {
         self.interactor = interactor
     }
@@ -33,6 +34,7 @@ final class ViewModel {
         NotificationCenter.default.post(name: .resetShoeModel, object: nil)
     }
     
+    @MainActor
     func setupScene(_ scene: Entity?, shoes: [ShoeModel], content: RealityViewContent) {
         guard let scene else { return }
         
@@ -40,6 +42,7 @@ final class ViewModel {
         shoesCircle(shoes: shoes, in: scene, content: content)
     }
     
+    @MainActor
     func updateScene(_ scene: Entity?, shoes: [ShoeModel], content: RealityViewContent) {
         guard let scene else { return }
         
@@ -61,6 +64,7 @@ final class ViewModel {
         }
     }
     
+    @MainActor
     private func shoesCircle(shoes: [ShoeModel], in scene: Entity, content: RealityViewContent) {
         let count = shoes.count
         let radius: Float = 25.0
@@ -88,6 +92,7 @@ final class ViewModel {
         }
     }
     
+    @MainActor
     private func createPriceLabelEntity(price: Double) -> Entity {
         let backgroundWidth: Float = 5.0
         let backgroundHeight: Float = 1.5
@@ -110,6 +115,7 @@ final class ViewModel {
         return backgroundEntity
     }
     
+    @MainActor
     private func generatePriceText(_ price: Double) -> MeshResource {
         MeshResource.generateText(
             price.formatted(.currency(code: "USD")),
@@ -121,6 +127,7 @@ final class ViewModel {
         )
     }
 
+    @MainActor
     private func createRoundedRectangleEntity(width: Float, height: Float, cornerRadius: Float) -> ModelEntity {
         let capsule = MeshResource.generatePlane(width: width, height: height, cornerRadius: cornerRadius)
         let capsuleEntity = ModelEntity(mesh: capsule)
@@ -128,6 +135,7 @@ final class ViewModel {
         return capsuleEntity
     }
     
+    @MainActor
     private func updatePriceVisibility(for shoes: [ShoeModel], in scene: Entity) {
         for shoe in shoes {
             if let priceEntity = scene.findEntity(named: "\(shoe.model3DName)price") {

@@ -6,7 +6,7 @@
 //
 import SwiftData
 
-extension ShoeModel {
+extension ShoeModel: @unchecked Sendable {
     static let firstTest = ShoeModel(
         id: 10123,
         name: "Urban Explorer",

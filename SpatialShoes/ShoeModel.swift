@@ -52,8 +52,7 @@ final class ShoeModel {
 extension ShoeModel {
     @ModelActor
     actor BackgroundActor {
-        func importShoes(using interactor: DataInteractor) async throws {
-            let shoes = try await interactor.getShoes()
+        func importShoes(_ shoes: [ShoeModel]) async throws {
             shoes.forEach { modelContext.insert($0) }
             try modelContext.save()
         }

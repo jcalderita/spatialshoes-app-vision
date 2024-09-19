@@ -22,9 +22,8 @@ struct ShoesSplitView: View {
     
     init(favorites: Bool, showProgress: Bool) {
         self.showProgress = showProgress
-        let sort = [SortDescriptor(\ShoeModel.name)]
         let filter = #Predicate<ShoeModel> { $0.isFavorite }
-        _shoes = Query(filter: favorites ? filter : .none, sort: sort)
+        _shoes = Query(filter: favorites ? filter : .none, sort: \ShoeModel.name)
     }
     
     var body: some View {
@@ -48,12 +47,16 @@ struct ShoesSplitView: View {
         }
         .onAppear {
             NotificationCenter.default.addObserver(forName: .resetShoeModel, object: nil, queue: .main) { _ in
-                selectedShoe = nil
+                Task { try await resetSelectedShoe() }
             }
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: .resetShoeModel, object: nil)
         }
+    }
+    
+    private func resetSelectedShoe() async throws {
+        self.selectedShoe = nil
     }
 }
 

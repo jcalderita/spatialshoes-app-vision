@@ -6,5 +6,5 @@
 //
 
 extension ViewModel {
-    static let preview = ViewModel(interactor: PreviewDataInteractor())
+    @MainActor static let preview = ViewModel(interactor: PreviewDataInteractor())
 }

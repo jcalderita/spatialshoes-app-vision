@@ -50,9 +50,15 @@ struct DetailShoeRealityView: View {
     
     private func rotation() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { _ in
-            angle = (angle == 360 ? 0 : angle) + 0.2
+            Task {
+                await setAngle((self.angle + 0.2).truncatingRemainder(dividingBy: 360))
+            }
         }
         RunLoop.current.add(timer!, forMode: .common)
+    }
+    
+    private func setAngle(_ angle: Double) async {
+        self.angle = angle
     }
     
     private func stopRotation() {

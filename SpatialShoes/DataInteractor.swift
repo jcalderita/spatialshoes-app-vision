@@ -8,6 +8,8 @@ import Foundation
 
 protocol DataInteractor: JSONInteractor {
     static var resourceName: String { get }
+    
+    @MainActor
     func getShoes() async throws -> [ShoeModel]
 }
 
@@ -15,11 +17,9 @@ extension DataInteractor {
     static var resourceName: String { "shoes.json" }
     
     func getShoes() async throws -> [ShoeModel] {
-        return try getDTO(resource: Self.resourceName, type: [ShoeDTO].self).map(\.toShoeModel)
+        try getDTO(resource: Self.resourceName, type: [ShoeDTO].self).map(\.toShoeModel)
     }
-}
-
-extension DataInteractor {
+    
     private func getDTO<T>(resource: String, type: T.Type) throws -> T where T: Decodable {
         let resourceInfo = try resource.nameAndExtension()
         guard let url = Bundle.main.url(forResource: resourceInfo.name, withExtension: resourceInfo.ext) else {

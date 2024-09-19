@@ -31,8 +31,9 @@ struct ShoeCollectionView: View {
         vm.showProgress = true
         defer { vm.showProgress = false }
         do {
+            let shoes = try await vm.interactor.getShoes()
             let bgActor = ShoeModel.BackgroundActor(modelContainer: modelContext.container)
-            try await bgActor.importShoes(using: vm.interactor)
+            try await bgActor.importShoes(shoes)
         } catch {
             print(error)
         }
