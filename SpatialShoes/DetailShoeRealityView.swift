@@ -10,6 +10,7 @@ import RealityKit
 import RealityShoeGallery
 
 struct DetailShoeRealityView: View {
+    @Environment(ViewModel.self) private var vm
     @Environment(\.openWindow) private var open
     
     let model3DName: String
@@ -23,7 +24,7 @@ struct DetailShoeRealityView: View {
         Group {
             if let shoeModel {
                 Button {
-                    ViewModel.shared.selectedModel3DName = model3DName
+                    vm.selectedModel3DName = model3DName
                     open(id: GlobalData.volumetricId)
                 } label: {
                     RealityView { content in

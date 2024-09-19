@@ -12,7 +12,6 @@ import SwiftUI
 
 @Observable
 final class ViewModel {
-    @MainActor static let shared = ViewModel()
     let interactor: DataInteractor
     
     var showProgress = false

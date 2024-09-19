@@ -10,7 +10,7 @@ import SwiftData
 
 @main
 struct SpatialShoesApp: App {
-    @State private var vm = ViewModel.shared
+    @State private var vm = ViewModel()
     @State private var immersionStyle: ImmersionStyle = .full
     
     var body: some Scene {

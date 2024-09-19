@@ -33,6 +33,7 @@ extension ShoesSplitView {
 extension DetailShoeRealityView {
     static var preview: some View {
         DetailShoeRealityView(model3DName: ShoeModel.firstTest.model3DName)
+            .environment(ViewModel.preview)
     }
 }
 
