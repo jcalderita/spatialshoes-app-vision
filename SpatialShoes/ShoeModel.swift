@@ -53,7 +53,13 @@ extension ShoeModel {
     @ModelActor
     actor BackgroundActor {
         func importShoes(_ shoes: [ShoeModel]) async throws {
-            shoes.forEach { modelContext.insert($0) }
+            for shoe in shoes {
+                let id = shoe.id
+                let filter = #Predicate<ShoeModel> { $0.id == id }
+                if try modelContext.fetch(FetchDescriptor(predicate: filter)).isEmpty {
+                    modelContext.insert(shoe)
+                }
+            }
             try modelContext.save()
         }
     }

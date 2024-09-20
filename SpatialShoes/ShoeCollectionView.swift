@@ -11,7 +11,6 @@ import SwiftData
 struct ShoeCollectionView: View {
     @Environment(ViewModel.self) private var vm
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismissWindow) private var close
     
     var body: some View {
         ShoesSplitView(favorites: vm.favorites, showProgress: vm.showProgress)
