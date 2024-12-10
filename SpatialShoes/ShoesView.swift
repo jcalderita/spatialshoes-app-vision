@@ -20,14 +20,7 @@ struct ShoesView: View {
     @State private var scene: Entity?
     
     var body: some View {
-        Group {
-            if scene != .none {
-                RealityView { vm.setupScene(scene, shoes: shoes, content: $0) }
-                update: { vm.updateScene(scene, shoes: shoes, content: $0) }
-            } else {
-                CustomProgressView("Load Scene")
-            }
-        }
+        detailView()
         .animation(.default, value: vm.rotationAngle)
         .task {
             await loadScene()
@@ -35,6 +28,16 @@ struct ShoesView: View {
         .onDisappear {
             closeScene()
         }
+    }
+    
+    private func detailView() -> some View {
+        guard scene != .none else {
+            return AnyView(CustomProgressView("Load Scene"))
+        }
+        return AnyView(
+            RealityView { vm.setupScene(scene, shoes: shoes, content: $0) }
+            update: { vm.updateScene(scene, shoes: shoes, content: $0) }
+        )
     }
     
     private func loadScene() async {

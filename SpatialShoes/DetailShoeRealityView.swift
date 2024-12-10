@@ -21,24 +21,7 @@ struct DetailShoeRealityView: View {
     @State private var timer: Timer?
     
     var body: some View {
-        Group {
-            if let shoeModel {
-                Button {
-                    vm.selectedModel3DName = model3DName
-                    open(id: GlobalData.volumetricId)
-                } label: {
-                    RealityView { content in
-                        shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? GlobalData.defaultSize) - Float(GlobalData.defaultSize)) * 0.002))
-                        content.add(shoeModel)
-                    }
-                    .id("\(model3DName)\(size ?? GlobalData.defaultSize)")
-                    .rotation3DEffect(Angle(degrees: angle), axis: .y)
-                }
-                .buttonStyle(.plain)
-            } else {
-                CustomProgressView("Load shoe")
-            }
-        }
+        detailView()
         .frame(minWidth: 300, idealWidth: 350, maxWidth: 400, minHeight: 300, idealHeight: 350, maxHeight: 400)
         .task {
             shoeModel = try? await Entity(named: model3DName, in: realityShoeGalleryBundle)
@@ -47,6 +30,27 @@ struct DetailShoeRealityView: View {
         .onDisappear {
             stopRotation()
         }
+    }
+    
+    private func detailView() -> some View {
+        guard let shoeModel else {
+            return AnyView(CustomProgressView("Load shoe"))
+        }
+        
+        return AnyView(
+            Button {
+                vm.selectedModel3DName = model3DName
+                open(id: GlobalData.volumetricId)
+            } label: {
+                RealityView { content in
+                    shoeModel.scale = SIMD3(repeating: 0.03 + ((Float(size ?? GlobalData.defaultSize) - Float(GlobalData.defaultSize)) * 0.002))
+                    content.add(shoeModel)
+                }
+                .id("\(model3DName)\(size ?? GlobalData.defaultSize)")
+                .rotation3DEffect(Angle(degrees: angle), axis: .y)
+            }
+            .buttonStyle(.plain)
+        )
     }
     
     private func rotation() {

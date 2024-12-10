@@ -17,7 +17,26 @@ struct SpaceControlView: View {
     
     var body: some View {
         VStack {
-            if let shoe = vm.selectedShoe {
+            detailview()
+            Spacer()
+            controlButtons
+                .padding(.bottom)
+        }
+        .onDisappear {
+            dismissSpace()
+        }
+    }
+    
+    private func detailview() -> some View {
+        guard let shoe = vm.selectedShoe else {
+            return AnyView(
+                Text(.init(GlobalData.welcome))
+                .font(.headline)
+                .padding()
+            )
+        }
+        return AnyView(
+            Group {
                 DetailHeaderView(title: shoe.name, isFavorite: shoe.isFavorite) {
                     vm.favorites.toggle()
                 } exitFunction: {
@@ -26,18 +45,8 @@ struct SpaceControlView: View {
                 Text(.init(shoe.specification))
                     .font(.headline)
                     .padding()
-            } else {
-                Text(.init(GlobalData.welcome))
-                    .font(.headline)
-                    .padding()
             }
-            Spacer()
-            controlButtons
-                .padding(.bottom)
-        }
-        .onDisappear {
-            dismissSpace()
-        }
+        )
     }
     
     private var controlButtons: some View {

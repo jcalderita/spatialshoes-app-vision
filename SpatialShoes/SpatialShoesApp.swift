@@ -45,11 +45,10 @@ struct SpatialShoesApp: App {
         }
         .windowStyle(.volumetric)
         .defaultWindowPlacement { content, context in
-            if context.windows.last?.id == GlobalData.volumetricId {
-                WindowPlacement(.trailing(context.windows.last!))
-            } else {
-                WindowPlacement(.utilityPanel)
+            guard context.windows.last?.id != GlobalData.volumetricId else {
+                return WindowPlacement(.utilityPanel)
             }
+            return WindowPlacement(.trailing(context.windows.last!))
         }
         .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
         .windowResizability(.contentSize)

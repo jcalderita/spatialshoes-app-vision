@@ -31,12 +31,7 @@ struct ShoesSplitView: View {
             ShoesListMenuView(shoes: filteredShoes, selectedShoe: $selectedShoe)
                 .searchable(text: $searchText)
         } detail: {
-            if selectedShoe != .none {
-                ShoeDetail(shoe: $selectedShoe)
-                    .id(selectedShoe?.name)
-            } else {
-                ShoesGridView(shoes: filteredShoes)
-            }
+            detailView()
         }
         .overlay {
             if showProgress {
@@ -57,6 +52,13 @@ struct ShoesSplitView: View {
     
     private func resetSelectedShoe() async throws {
         self.selectedShoe = nil
+    }
+    private func detailView() -> some View {
+        guard selectedShoe != .none else  {
+            return AnyView(ShoesGridView(shoes: filteredShoes))
+        }
+        return AnyView(ShoeDetail(shoe: $selectedShoe)
+            .id(selectedShoe?.name))
     }
 }
 

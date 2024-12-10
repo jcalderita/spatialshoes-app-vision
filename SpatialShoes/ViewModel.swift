@@ -53,14 +53,14 @@ final class ViewModel {
         rotationAngle = GlobalData.rotationAngle * (direction == .next ? 1 : -1)
         
         guard !shoes.isEmpty else { return }
-        
-        if let shoe = selectedShoe, let currentIndex = shoes.firstIndex(of: shoe) {
-            let count = shoes.count
-            let newIndex = direction == .next ? (currentIndex + 1) % count : (currentIndex - 1 + count) % count
-            selectedShoe = shoes[newIndex]
-        } else {
+        guard let shoe = selectedShoe, let currentIndex = shoes.firstIndex(of: shoe) else {
             selectedShoe = shoes.first
+            return
         }
+        
+        let count = shoes.count
+        let newIndex = direction == .next ? (currentIndex + 1) % count : (currentIndex - 1 + count) % count
+        selectedShoe = shoes[newIndex]
     }
     
     @MainActor
@@ -72,22 +72,24 @@ final class ViewModel {
             let angle = (Float(index) / Float(count)) * 2 * .pi
             let x = radius * cos(angle)
             let z = radius * sin(angle)
-
-            if let shoeEntity = scene.findEntity(named: shoe.model3DName) {
-                let rotation = simd_quatf(angle: .pi, axis: [0, 1, 0])
-                
-                shoeEntity.position = [x, 0, z]
-                shoeEntity.look(at: .zero, from: shoeEntity.position, relativeTo: nil)
-                shoeEntity.orientation *= rotation
-                scene.addChild(shoeEntity)
-                
-                let priceEntity = createPriceLabelEntity(price: shoe.price)
-                priceEntity.name = ("\(shoe.model3DName)price")
-                priceEntity.position = [x, shoeEntity.position.y + 2.0, z]
-                priceEntity.look(at: .zero, from: priceEntity.position, relativeTo: nil)
-                priceEntity.orientation *= rotation
-                scene.addChild(priceEntity)
+            
+            guard let shoeEntity = scene.findEntity(named: shoe.model3DName) else {
+                continue
             }
+            
+            let rotation = simd_quatf(angle: .pi, axis: [0, 1, 0])
+            
+            shoeEntity.position = [x, 0, z]
+            shoeEntity.look(at: .zero, from: shoeEntity.position, relativeTo: nil)
+            shoeEntity.orientation *= rotation
+            scene.addChild(shoeEntity)
+            
+            let priceEntity = createPriceLabelEntity(price: shoe.price)
+            priceEntity.name = ("\(shoe.model3DName)price")
+            priceEntity.position = [x, shoeEntity.position.y + 2.0, z]
+            priceEntity.look(at: .zero, from: priceEntity.position, relativeTo: nil)
+            priceEntity.orientation *= rotation
+            scene.addChild(priceEntity)
         }
     }
     
@@ -128,22 +130,23 @@ final class ViewModel {
 
     @MainActor
     private func createRoundedRectangleEntity(width: Float, height: Float, cornerRadius: Float) -> ModelEntity {
-        let capsule = MeshResource.generatePlane(width: width, height: height, cornerRadius: cornerRadius)
-        let capsuleEntity = ModelEntity(mesh: capsule)
-        
-        return capsuleEntity
+        ModelEntity(
+            mesh: MeshResource.generatePlane(
+                width: width,
+                height: height,
+                cornerRadius: cornerRadius
+            )
+        )
     }
     
     @MainActor
     private func updatePriceVisibility(for shoes: [ShoeModel], in scene: Entity) {
-        for shoe in shoes {
-            if let priceEntity = scene.findEntity(named: "\(shoe.model3DName)price") {
-                if let selectedShoe {
-                    priceEntity.isEnabled = priceEntity.name.contains(selectedShoe.model3DName)
-                } else {
-                    priceEntity.isEnabled = false
-                }
-            }
+        let priceEntities = Dictionary(uniqueKeysWithValues: shoes.compactMap { shoe in
+            scene.findEntity(named: "\(shoe.model3DName)price").map { ($0.name, $0)}
+        })
+        
+        for (name, priceEntity) in priceEntities {
+            priceEntity.isEnabled = selectedShoe != nil && name.contains(selectedShoe?.model3DName ?? "")
         }
     }
 }

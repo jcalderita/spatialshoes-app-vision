@@ -3,18 +3,16 @@ name: Create Release on Tag
 on:
   push:
     tags:
-      - '*.*.*'  # Esto indica que el workflow se ejecuta cuando se empuja un tag que sigue el patrón X.X.X
+      - '*.*.*'
 
 jobs:
   create_release:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Chequea el código del repositorio
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Crea el release usando softprops/action-gh-release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2.0.8
         with:

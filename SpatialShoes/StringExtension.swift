@@ -8,10 +8,10 @@
 import Foundation
 
 extension String {
-    func nameAndExtension() throws -> (name: String, ext: String) {
+    func nameAndExtension() throws(ResourceError) -> (name: String, ext: String) {
         let components = self.components(separatedBy: ".")
         guard components.count == 2, let name = components.first, let ext = components.last else {
-            throw ResourceError.invalidFormat
+            throw .invalidFormat
         }
         return (name, ext)
     }
